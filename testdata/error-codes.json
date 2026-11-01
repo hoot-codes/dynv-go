@@ -1,0 +1,594 @@
+[
+  {
+    "code": "unauthorized",
+    "text": "unauthorized"
+  },
+  {
+    "code": "not_found",
+    "text": "not found"
+  },
+  {
+    "code": "gone",
+    "text": "invite expired or already used"
+  },
+  {
+    "code": "rate_limited",
+    "text": "too many requests"
+  },
+  {
+    "code": "internal",
+    "text": "internal error"
+  },
+  {
+    "code": "exists",
+    "text": "exists"
+  },
+  {
+    "code": "stale_version",
+    "text": "version or key generation changed; re-read and retry"
+  },
+  {
+    "code": "stale_or_rotation_required",
+    "text": "version or key generation changed, or rotation required; re-read and retry"
+  },
+  {
+    "code": "stale_process_generation",
+    "text": "process key generation changed; re-read and retry"
+  },
+  {
+    "code": "stale_group_generation",
+    "text": "group key generation changed or process not attached; re-read and retry"
+  },
+  {
+    "code": "stale_members",
+    "text": "member set changed; re-read and retry"
+  },
+  {
+    "code": "stale_attachments",
+    "text": "attachments changed; re-read and retry"
+  },
+  {
+    "code": "version_step",
+    "text": "version must increase by exactly one"
+  },
+  {
+    "code": "rotation_step",
+    "text": "rotation must bump generation and version by one"
+  },
+  {
+    "code": "new_process_start",
+    "text": "new process starts at version 1, generation 1"
+  },
+  {
+    "code": "new_group_start",
+    "text": "new group starts at version 1, generation 1"
+  },
+  {
+    "code": "client_outdated",
+    "text": "this process uses shared variable groups; upgrade your dynv client"
+  },
+  {
+    "code": "group_attached",
+    "text": "group is still attached; detach every process first"
+  },
+  {
+    "code": "group_limit",
+    "text": "shared group limit reached"
+  },
+  {
+    "code": "process_group_limit",
+    "text": "process has the maximum number of shared groups"
+  },
+  {
+    "code": "too_many_groups",
+    "text": "too many shared groups"
+  },
+  {
+    "code": "duplicate_slot",
+    "text": "duplicate slot"
+  },
+  {
+    "code": "invalid_slot",
+    "text": "invalid slot"
+  },
+  {
+    "code": "job_running",
+    "text": "a running rotation already touches one of these objects"
+  },
+  {
+    "code": "invalid_job",
+    "text": "invalid rotation job"
+  },
+  {
+    "code": "job_finished",
+    "text": "a finished rotation job can't become active again"
+  },
+  {
+    "code": "invalid_vuln_counts",
+    "text": "invalid vulnerability counts"
+  },
+  {
+    "code": "invalid_severity",
+    "text": "invalid severity"
+  },
+  {
+    "code": "alerts_unavailable",
+    "text": "alert delivery is not configured on this server"
+  },
+  {
+    "code": "invalid_webhook_url",
+    "text": "invalid webhook url"
+  },
+  {
+    "code": "invalid_webhook_format",
+    "text": "invalid webhook format"
+  },
+  {
+    "code": "webhook_limit",
+    "text": "webhook limit reached"
+  },
+  {
+    "code": "invalid_github_token",
+    "text": "a github_dispatch webhook needs a fine-grained GitHub token"
+  },
+  {
+    "code": "invalid_pr_url",
+    "text": "invalid pull request url"
+  },
+  {
+    "code": "invalid_canary",
+    "text": "invalid canary"
+  },
+  {
+    "code": "canary_kind_unavailable",
+    "text": "this canary kind is not available on this server"
+  },
+  {
+    "code": "canary_exists",
+    "text": "canary trigger or id already exists"
+  },
+  {
+    "code": "canary_limit",
+    "text": "canary limit reached"
+  },
+  {
+    "code": "already_bootstrapped",
+    "text": "already bootstrapped"
+  },
+  {
+    "code": "bootstrap_writer",
+    "text": "the bootstrap master must be a writer"
+  },
+  {
+    "code": "first_master_owner",
+    "text": "the first master must be an owner (writer)"
+  },
+  {
+    "code": "additional_master_read_only",
+    "text": "additional master tokens must be read-only"
+  },
+  {
+    "code": "role_mismatch",
+    "text": "role and read_only disagree"
+  },
+  {
+    "code": "last_master",
+    "text": "cannot revoke the last master token"
+  },
+  {
+    "code": "no_writer",
+    "text": "no live writer master"
+  },
+  {
+    "code": "process_limit",
+    "text": "plan process limit reached"
+  },
+  {
+    "code": "counters_reconciling",
+    "text": "account counters are being reconciled; retry"
+  },
+  {
+    "code": "duplicate_member",
+    "text": "duplicate member"
+  },
+  {
+    "code": "passkey_exists",
+    "text": "passkey already registered"
+  },
+  {
+    "code": "passkey_concurrent_login",
+    "text": "concurrent login with this passkey; retry"
+  },
+  {
+    "code": "passkey_failed",
+    "text": "passkey verification failed"
+  },
+  {
+    "code": "challenge_unknown",
+    "text": "unknown or expired challenge"
+  },
+  {
+    "code": "invalid_credential",
+    "text": "invalid credential"
+  },
+  {
+    "code": "invalid_transports",
+    "text": "invalid transports"
+  },
+  {
+    "code": "invite_roles",
+    "text": "invites are for viewers or owner devices"
+  },
+  {
+    "code": "invite_device_mismatch",
+    "text": "the new device must take the invite's role, member and name"
+  },
+  {
+    "code": "viewer_via_invite",
+    "text": "viewers join through an invite"
+  },
+  {
+    "code": "inviter_label_too_long",
+    "text": "inviter label too long"
+  },
+  {
+    "code": "invite_ttl_owner",
+    "text": "ttl_secs must be between 300 and 3600 for owner devices"
+  },
+  {
+    "code": "invite_ttl",
+    "text": "ttl_secs must be between 300 and 86400"
+  },
+  {
+    "code": "email_invite_viewers",
+    "text": "email invites are for viewers; share owner-device invites by link"
+  },
+  {
+    "code": "email_not_configured",
+    "text": "email is not configured on this server"
+  },
+  {
+    "code": "invalid_email",
+    "text": "invalid email"
+  },
+  {
+    "code": "invalid_code",
+    "text": "invalid or expired code"
+  },
+  {
+    "code": "account_exists",
+    "text": "an account already exists for this email or id"
+  },
+  {
+    "code": "email_already_linked",
+    "text": "account already has an email"
+  },
+  {
+    "code": "fix_not_configured",
+    "text": "AI fixes are not configured on this server"
+  },
+  {
+    "code": "fix_missing_oidc",
+    "text": "missing CI identity token"
+  },
+  {
+    "code": "fix_invalid_oidc",
+    "text": "invalid CI identity token"
+  },
+  {
+    "code": "fix_not_enabled",
+    "text": "AI fixes are not enabled for this repository"
+  },
+  {
+    "code": "fix_branch",
+    "text": "AI fixes run only on the configured branches"
+  },
+  {
+    "code": "fix_pull_request",
+    "text": "AI fixes do not run on pull request events"
+  },
+  {
+    "code": "fix_workflow",
+    "text": "AI fixes run only from the configured workflow and branch"
+  },
+  {
+    "code": "fix_invalid_workflow",
+    "text": "invalid workflow path"
+  },
+  {
+    "code": "fix_paid_plan",
+    "text": "AI fixes on Dynv keys need a paid plan (Free accounts bring their own key)"
+  },
+  {
+    "code": "fix_budget",
+    "text": "the monthly AI fix budget is used up"
+  },
+  {
+    "code": "fix_unknown_preset",
+    "text": "unknown model preset"
+  },
+  {
+    "code": "fix_key_issued",
+    "text": "a model key was already issued for this CI run"
+  },
+  {
+    "code": "fix_invalid_result",
+    "text": "invalid fix result"
+  },
+  {
+    "code": "fix_invalid_repos",
+    "text": "invalid repository list"
+  },
+  {
+    "code": "fix_invalid_branches",
+    "text": "invalid branch list"
+  },
+  {
+    "code": "fix_invalid_cap",
+    "text": "invalid spend cap"
+  },
+  {
+    "code": "fix_invalid_job_limit",
+    "text": "invalid job limit"
+  },
+  {
+    "code": "fix_needs_setup",
+    "text": "AI fixes need a fix process and at least one repository"
+  },
+  {
+    "code": "fix_teams_org",
+    "text": "AI fixes are not available in teams orgs yet"
+  },
+  {
+    "code": "teams_grant_not_in_roster",
+    "text": "a grant the roster doesn't list at that generation"
+  },
+  {
+    "code": "teams_cross_scope_attach",
+    "text": "a group can only be attached within its own scope"
+  },
+  {
+    "code": "teams_owner_device_via_invite",
+    "text": "add owner devices with an owner-device invite"
+  },
+  {
+    "code": "teams_already_org",
+    "text": "already a teams org"
+  },
+  {
+    "code": "teams_id_used",
+    "text": "this id was used before; pick a new one"
+  },
+  {
+    "code": "teams_owner_device_member",
+    "text": "an org owner device belongs to the signed-in owner member"
+  },
+  {
+    "code": "teams_author_signature",
+    "text": "author signature does not verify"
+  },
+  {
+    "code": "teams_detach_before_move",
+    "text": "detach the process's shared groups before moving it"
+  },
+  {
+    "code": "teams_grant_payload",
+    "text": "grant needs exactly the member's grant ciphertext"
+  },
+  {
+    "code": "teams_head_author",
+    "text": "head author must be the signed-in member"
+  },
+  {
+    "code": "teams_head_needs_org",
+    "text": "head chains need a teams org and a member device"
+  },
+  {
+    "code": "teams_head_stale",
+    "text": "head does not extend the current version; re-read and retry"
+  },
+  {
+    "code": "teams_head_signature",
+    "text": "head signature does not verify under the scope key"
+  },
+  {
+    "code": "teams_member_removal_via_roster",
+    "text": "in a teams org, remove members with org member removal (it rotates their workspaces)"
+  },
+  {
+    "code": "teams_join_mismatch",
+    "text": "join must be invite_join for this invite and member"
+  },
+  {
+    "code": "teams_labels_with_regen",
+    "text": "label_ct (and token_labels) come with a new scope generation, and only then"
+  },
+  {
+    "code": "teams_label_with_regen",
+    "text": "label_ct comes with a new scope generation, and only then"
+  },
+  {
+    "code": "teams_member_device_bundle",
+    "text": "member devices carry a member bundle and no account or org keyring"
+  },
+  {
+    "code": "teams_member_device_keys",
+    "text": "member devices carry no account or org keyring"
+  },
+  {
+    "code": "teams_member_id_used",
+    "text": "member id already used"
+  },
+  {
+    "code": "teams_member_id_required",
+    "text": "member_id is required"
+  },
+  {
+    "code": "teams_move_same_scope",
+    "text": "move_to is the process's own scope"
+  },
+  {
+    "code": "teams_grant_unknown",
+    "text": "no such grant at that generation in the roster"
+  },
+  {
+    "code": "teams_not_roster_member",
+    "text": "not a live roster member"
+  },
+  {
+    "code": "teams_not_appendable",
+    "text": "not appendable here"
+  },
+  {
+    "code": "teams_invite_join_required",
+    "text": "org invites need the invite_join entry"
+  },
+  {
+    "code": "teams_invite_shape",
+    "text": "org invites: members need roster_entry; owner devices need bundle_ct and org_keyring_ct"
+  },
+  {
+    "code": "teams_invite_expiry",
+    "text": "signed invite expiry does not match ttl_secs"
+  },
+  {
+    "code": "teams_invite_cancel_roster",
+    "text": "an org invite is cancelled through the roster (invite_cancel), which also rotates its workspaces"
+  },
+  {
+    "code": "teams_org_owner_device_keys",
+    "text": "org owner devices carry the member bundle and org keyring"
+  },
+  {
+    "code": "teams_owner_device_keys",
+    "text": "owner devices carry the member bundle and org keyring"
+  },
+  {
+    "code": "teams_upgrade_consent",
+    "text": "revoke_devices must list exactly the owner devices this upgrade signs out; re-run the pre-flight"
+  },
+  {
+    "code": "teams_needs_org",
+    "text": "roster and org keys need a teams org"
+  },
+  {
+    "code": "teams_roster_changed",
+    "text": "roster changed; re-read and retry"
+  },
+  {
+    "code": "teams_roster_invalid",
+    "text": "roster does not verify"
+  },
+  {
+    "code": "teams_roster_entry_invalid",
+    "text": "roster entry does not verify"
+  },
+  {
+    "code": "teams_invite_entry",
+    "text": "roster_entry must be invite_create for this invite, role member"
+  },
+  {
+    "code": "teams_rotate_into_current",
+    "text": "rotate into the scope's current generation (append scope_rotate first)"
+  },
+  {
+    "code": "teams_scope_frozen",
+    "text": "scope rotation in progress"
+  },
+  {
+    "code": "teams_object_frozen",
+    "text": "scope rotation in progress: rotate this object first"
+  },
+  {
+    "code": "teams_scope_create_payload",
+    "text": "scope_create needs admin_keyring_ct, label_ct and no grants"
+  },
+  {
+    "code": "teams_scope_gen_legacy",
+    "text": "scope_gen is only for teams orgs"
+  },
+  {
+    "code": "teams_scope_gen_required",
+    "text": "scope_gen is required in a teams org"
+  },
+  {
+    "code": "teams_scope_id_required",
+    "text": "scope_id is required in a teams org"
+  },
+  {
+    "code": "teams_scope_rotate_payload",
+    "text": "scope_rotate needs admin_keyring_ct, label_ct and a grant for every remaining grantee"
+  },
+  {
+    "code": "teams_scopes_need_org",
+    "text": "scopes need a teams org"
+  },
+  {
+    "code": "teams_entry_author",
+    "text": "the entry's author must be the signed-in member"
+  },
+  {
+    "code": "teams_org_key_reuse",
+    "text": "the org key must not be the legacy account key"
+  },
+  {
+    "code": "teams_recovery_kit",
+    "text": "the recovery kit is a writer device of the owner member, with the org keyring"
+  },
+  {
+    "code": "teams_roster_start",
+    "text": "the roster must start with org_create"
+  },
+  {
+    "code": "teams_upgrade_self",
+    "text": "the upgrading device must register itself"
+  },
+  {
+    "code": "teams_chained_client_outdated",
+    "text": "this object's history is chained; upgrade your dynv client"
+  },
+  {
+    "code": "teams_unexpected_payload",
+    "text": "unexpected payload for this entry"
+  },
+  {
+    "code": "teams_upgrade_in_progress",
+    "text": "upgrade already in progress"
+  },
+  {
+    "code": "teams_upgrade_shape",
+    "text": "upgrade is org_create then the Default scope, signed by the account key"
+  },
+  {
+    "code": "invalid_id",
+    "text": "invalid id"
+  },
+  {
+    "code": "invalid_ciphertext",
+    "text": "invalid ciphertext"
+  },
+  {
+    "code": "invalid_blob",
+    "text": "invalid blob"
+  },
+  {
+    "code": "invalid_token",
+    "text": "invalid token"
+  },
+  {
+    "code": "invalid_verifier",
+    "text": "invalid verifier"
+  },
+  {
+    "code": "invalid_key_material",
+    "text": "invalid key material"
+  },
+  {
+    "code": "invalid_change_id",
+    "text": "invalid change id"
+  },
+  {
+    "code": "invalid_client_instance",
+    "text": "invalid client instance"
+  }
+]

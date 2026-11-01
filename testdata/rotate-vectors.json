@@ -1,0 +1,3788 @@
+{
+  "cases": [
+    {
+      "expect": {
+        "plan": {
+          "blocked": [
+            {
+              "name": "templated",
+              "object": "pTpl000000000005",
+              "why": "AUTH_SECRET is a template here; rotate what it references"
+            }
+          ],
+          "effects": [
+            {
+              "changed": [
+                "AUTH_SECRET"
+              ],
+              "name": "api",
+              "process": "pApi000000000001",
+              "restart": true,
+              "templates": []
+            },
+            {
+              "changed": [
+                "AUTH_SECRET"
+              ],
+              "name": "billing",
+              "process": "pBil000000000004",
+              "restart": true,
+              "templates": []
+            },
+            {
+              "changed": [
+                "AUTH_SECRET",
+                "SESSION_URL"
+              ],
+              "name": "web",
+              "process": "pWeb000000000002",
+              "restart": true,
+              "templates": [
+                "SESSION_URL"
+              ]
+            },
+            {
+              "changed": [
+                "AUTH_SECRET"
+              ],
+              "name": "worker",
+              "process": "pWrk000000000003",
+              "restart": false,
+              "templates": []
+            }
+          ],
+          "hash": "3b171594b5a30f7a5c7bf3412d9c003953edcab0b57793d8e9122828fce812ac",
+          "holders": [
+            {
+              "consumers": [
+                "pWrk000000000003",
+                "pBil000000000004"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "group",
+              "name": "auth",
+              "object": "gAuth00000000001"
+            },
+            {
+              "consumers": [
+                "pApi000000000001"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "own",
+              "name": "api",
+              "object": "pApi000000000001"
+            },
+            {
+              "consumers": [
+                "pBil000000000004"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "own",
+              "name": "billing",
+              "object": "pBil000000000004"
+            },
+            {
+              "consumers": [
+                "pWeb000000000002"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "own",
+              "name": "web",
+              "object": "pWeb000000000002"
+            }
+          ],
+          "key": "AUTH_SECRET",
+          "mode": "same",
+          "slots": [
+            "*"
+          ],
+          "suggestions": [
+            {
+              "key": "PROJECT_A_AUTH_SECRET",
+              "kind": "own",
+              "name": "billing",
+              "object": "pBil000000000004"
+            }
+          ],
+          "warnings": [
+            "AUTH_SECRET has 4 different values today; after this, every place shares one"
+          ],
+          "writes": [
+            {
+              "expected_version": 4,
+              "head": "h-pApi000000000001-4",
+              "kind": "process",
+              "name": "api",
+              "object": "pApi000000000001",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET",
+                  "slot": "*"
+                }
+              ]
+            },
+            {
+              "expected_version": 1,
+              "head": "h-pBil000000000004-1",
+              "kind": "process",
+              "name": "billing",
+              "object": "pBil000000000004",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET",
+                  "slot": "*"
+                }
+              ]
+            },
+            {
+              "expected_version": 2,
+              "head": "h-pWeb000000000002-2",
+              "kind": "process",
+              "name": "web",
+              "object": "pWeb000000000002",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET",
+                  "slot": "*"
+                }
+              ]
+            },
+            {
+              "expected_version": 5,
+              "head": "h-gAuth00000000001-5",
+              "kind": "group",
+              "name": "auth",
+              "object": "gAuth00000000001",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET",
+                  "slot": "*"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "name": "same-everywhere",
+      "request": {
+        "key": "AUTH_SECRET",
+        "mode": "same"
+      },
+      "snapshot": {
+        "groups": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "group": "auth",
+              "processes": [
+                "pWrk000000000003",
+                "pBil000000000004"
+              ],
+              "removed": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-group"
+                }
+              },
+              "version": 5
+            },
+            "hash": "h-gAuth00000000001-5",
+            "id": "gAuth00000000001",
+            "name": "auth"
+          }
+        ],
+        "processes": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "api",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-api"
+                },
+                "PORT": {
+                  "apply": "hot",
+                  "value": "80"
+                }
+              },
+              "version": 4
+            },
+            "hash": "h-pApi000000000001-4",
+            "id": "pApi000000000001",
+            "name": "api"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "web",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-web"
+                },
+                "SESSION_URL": {
+                  "template": "redis://x/${AUTH_SECRET}"
+                }
+              },
+              "version": 2
+            },
+            "hash": "h-pWeb000000000002-2",
+            "id": "pWeb000000000002",
+            "name": "web"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "worker",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "QUEUE": {
+                  "value": "q"
+                }
+              },
+              "version": 7
+            },
+            "hash": "h-pWrk000000000003-7",
+            "id": "pWrk000000000003",
+            "name": "worker"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "billing",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-billing"
+                },
+                "PROJECT_A_AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-api"
+                }
+              },
+              "version": 1
+            },
+            "hash": "h-pBil000000000004-1",
+            "id": "pBil000000000004",
+            "name": "billing"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "templated",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "template": "${OTHER}"
+                },
+                "OTHER": {
+                  "value": "o"
+                }
+              },
+              "version": 3
+            },
+            "hash": "h-pTpl000000000005-3",
+            "id": "pTpl000000000005",
+            "name": "templated"
+          }
+        ]
+      }
+    },
+    {
+      "expect": {
+        "plan": {
+          "blocked": [
+            {
+              "name": "templated",
+              "object": "pTpl000000000005",
+              "why": "AUTH_SECRET is a template here; rotate what it references"
+            }
+          ],
+          "effects": [
+            {
+              "changed": [
+                "AUTH_SECRET"
+              ],
+              "name": "api",
+              "process": "pApi000000000001",
+              "restart": true,
+              "templates": []
+            },
+            {
+              "changed": [
+                "AUTH_SECRET",
+                "PROJECT_A_AUTH_SECRET"
+              ],
+              "name": "billing",
+              "process": "pBil000000000004",
+              "restart": true,
+              "templates": []
+            },
+            {
+              "changed": [
+                "AUTH_SECRET",
+                "SESSION_URL"
+              ],
+              "name": "web",
+              "process": "pWeb000000000002",
+              "restart": true,
+              "templates": [
+                "SESSION_URL"
+              ]
+            },
+            {
+              "changed": [
+                "AUTH_SECRET"
+              ],
+              "name": "worker",
+              "process": "pWrk000000000003",
+              "restart": false,
+              "templates": []
+            }
+          ],
+          "hash": "32bca03521431a822670687fa618680df643f82d24c8db1bce5b3ab30cd971a2",
+          "holders": [
+            {
+              "consumers": [
+                "pWrk000000000003",
+                "pBil000000000004"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "group",
+              "name": "auth",
+              "object": "gAuth00000000001"
+            },
+            {
+              "consumers": [
+                "pApi000000000001"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "own",
+              "name": "api",
+              "object": "pApi000000000001"
+            },
+            {
+              "consumers": [
+                "pBil000000000004"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "own",
+              "name": "billing",
+              "object": "pBil000000000004"
+            },
+            {
+              "consumers": [
+                "pWeb000000000002"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "own",
+              "name": "web",
+              "object": "pWeb000000000002"
+            },
+            {
+              "consumers": [
+                "pBil000000000004"
+              ],
+              "key": "PROJECT_A_AUTH_SECRET",
+              "kind": "own",
+              "name": "billing",
+              "object": "pBil000000000004"
+            }
+          ],
+          "key": "AUTH_SECRET",
+          "mode": "same",
+          "slots": [
+            "*"
+          ],
+          "suggestions": [],
+          "warnings": [
+            "AUTH_SECRET has 4 different values today; after this, every place shares one"
+          ],
+          "writes": [
+            {
+              "expected_version": 4,
+              "head": "h-pApi000000000001-4",
+              "kind": "process",
+              "name": "api",
+              "object": "pApi000000000001",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET",
+                  "slot": "*"
+                }
+              ]
+            },
+            {
+              "expected_version": 1,
+              "head": "h-pBil000000000004-1",
+              "kind": "process",
+              "name": "billing",
+              "object": "pBil000000000004",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET",
+                  "slot": "*"
+                },
+                {
+                  "key": "PROJECT_A_AUTH_SECRET",
+                  "slot": "*"
+                }
+              ]
+            },
+            {
+              "expected_version": 2,
+              "head": "h-pWeb000000000002-2",
+              "kind": "process",
+              "name": "web",
+              "object": "pWeb000000000002",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET",
+                  "slot": "*"
+                }
+              ]
+            },
+            {
+              "expected_version": 5,
+              "head": "h-gAuth00000000001-5",
+              "kind": "group",
+              "name": "auth",
+              "object": "gAuth00000000001",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET",
+                  "slot": "*"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "name": "same-with-alias",
+      "request": {
+        "also": [
+          {
+            "key": "PROJECT_A_AUTH_SECRET",
+            "object": "pBil000000000004"
+          }
+        ],
+        "key": "AUTH_SECRET",
+        "mode": "same"
+      },
+      "snapshot": {
+        "groups": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "group": "auth",
+              "processes": [
+                "pWrk000000000003",
+                "pBil000000000004"
+              ],
+              "removed": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-group"
+                }
+              },
+              "version": 5
+            },
+            "hash": "h-gAuth00000000001-5",
+            "id": "gAuth00000000001",
+            "name": "auth"
+          }
+        ],
+        "processes": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "api",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-api"
+                },
+                "PORT": {
+                  "apply": "hot",
+                  "value": "80"
+                }
+              },
+              "version": 4
+            },
+            "hash": "h-pApi000000000001-4",
+            "id": "pApi000000000001",
+            "name": "api"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "web",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-web"
+                },
+                "SESSION_URL": {
+                  "template": "redis://x/${AUTH_SECRET}"
+                }
+              },
+              "version": 2
+            },
+            "hash": "h-pWeb000000000002-2",
+            "id": "pWeb000000000002",
+            "name": "web"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "worker",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "QUEUE": {
+                  "value": "q"
+                }
+              },
+              "version": 7
+            },
+            "hash": "h-pWrk000000000003-7",
+            "id": "pWrk000000000003",
+            "name": "worker"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "billing",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-billing"
+                },
+                "PROJECT_A_AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-api"
+                }
+              },
+              "version": 1
+            },
+            "hash": "h-pBil000000000004-1",
+            "id": "pBil000000000004",
+            "name": "billing"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "templated",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "template": "${OTHER}"
+                },
+                "OTHER": {
+                  "value": "o"
+                }
+              },
+              "version": 3
+            },
+            "hash": "h-pTpl000000000005-3",
+            "id": "pTpl000000000005",
+            "name": "templated"
+          }
+        ]
+      }
+    },
+    {
+      "expect": {
+        "plan": {
+          "blocked": [],
+          "effects": [
+            {
+              "changed": [
+                "AUTH_SECRET"
+              ],
+              "name": "api",
+              "process": "pApi000000000001",
+              "restart": true,
+              "templates": []
+            },
+            {
+              "changed": [
+                "PROJECT_A_AUTH_SECRET"
+              ],
+              "name": "billing",
+              "process": "pBil000000000004",
+              "restart": false,
+              "templates": []
+            }
+          ],
+          "hash": "01b96322796648bb6c8e3446807694265e5f5c1ed65f1e596f53b00bfcbec440",
+          "holders": [
+            {
+              "consumers": [
+                "pApi000000000001"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "own",
+              "name": "api",
+              "object": "pApi000000000001"
+            },
+            {
+              "consumers": [
+                "pBil000000000004"
+              ],
+              "key": "PROJECT_A_AUTH_SECRET",
+              "kind": "own",
+              "name": "billing",
+              "object": "pBil000000000004"
+            }
+          ],
+          "key": "AUTH_SECRET",
+          "mode": "same",
+          "slots": [
+            "*"
+          ],
+          "suggestions": [],
+          "warnings": [],
+          "writes": [
+            {
+              "expected_version": 4,
+              "head": "h-pApi000000000001-4",
+              "kind": "process",
+              "name": "api",
+              "object": "pApi000000000001",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET",
+                  "slot": "*"
+                }
+              ]
+            },
+            {
+              "expected_version": 1,
+              "head": "h-pBil000000000004-1",
+              "kind": "process",
+              "name": "billing",
+              "object": "pBil000000000004",
+              "ops": [
+                {
+                  "key": "PROJECT_A_AUTH_SECRET",
+                  "slot": "*"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "name": "only-one-service-plus-alias",
+      "request": {
+        "also": [
+          {
+            "key": "PROJECT_A_AUTH_SECRET",
+            "object": "pBil000000000004"
+          }
+        ],
+        "key": "AUTH_SECRET",
+        "mode": "same",
+        "only": [
+          "pApi000000000001",
+          "pApi000000000001"
+        ]
+      },
+      "snapshot": {
+        "groups": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "group": "auth",
+              "processes": [
+                "pWrk000000000003",
+                "pBil000000000004"
+              ],
+              "removed": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-group"
+                }
+              },
+              "version": 5
+            },
+            "hash": "h-gAuth00000000001-5",
+            "id": "gAuth00000000001",
+            "name": "auth"
+          }
+        ],
+        "processes": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "api",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-api"
+                },
+                "PORT": {
+                  "apply": "hot",
+                  "value": "80"
+                }
+              },
+              "version": 4
+            },
+            "hash": "h-pApi000000000001-4",
+            "id": "pApi000000000001",
+            "name": "api"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "web",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-web"
+                },
+                "SESSION_URL": {
+                  "template": "redis://x/${AUTH_SECRET}"
+                }
+              },
+              "version": 2
+            },
+            "hash": "h-pWeb000000000002-2",
+            "id": "pWeb000000000002",
+            "name": "web"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "worker",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "QUEUE": {
+                  "value": "q"
+                }
+              },
+              "version": 7
+            },
+            "hash": "h-pWrk000000000003-7",
+            "id": "pWrk000000000003",
+            "name": "worker"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "billing",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-billing"
+                },
+                "PROJECT_A_AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-api"
+                }
+              },
+              "version": 1
+            },
+            "hash": "h-pBil000000000004-1",
+            "id": "pBil000000000004",
+            "name": "billing"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "templated",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "template": "${OTHER}"
+                },
+                "OTHER": {
+                  "value": "o"
+                }
+              },
+              "version": 3
+            },
+            "hash": "h-pTpl000000000005-3",
+            "id": "pTpl000000000005",
+            "name": "templated"
+          }
+        ]
+      }
+    },
+    {
+      "expect": {
+        "plan": {
+          "blocked": [
+            {
+              "name": "templated",
+              "object": "pTpl000000000005",
+              "why": "AUTH_SECRET is a template here; rotate what it references"
+            }
+          ],
+          "effects": [
+            {
+              "changed": [
+                "AUTH_SECRET"
+              ],
+              "name": "api",
+              "process": "pApi000000000001",
+              "restart": true,
+              "templates": []
+            },
+            {
+              "changed": [
+                "AUTH_SECRET"
+              ],
+              "name": "billing",
+              "process": "pBil000000000004",
+              "restart": true,
+              "templates": []
+            },
+            {
+              "changed": [
+                "AUTH_SECRET",
+                "SESSION_URL"
+              ],
+              "name": "web",
+              "process": "pWeb000000000002",
+              "restart": true,
+              "templates": [
+                "SESSION_URL"
+              ]
+            },
+            {
+              "changed": [
+                "AUTH_SECRET"
+              ],
+              "name": "worker",
+              "process": "pWrk000000000003",
+              "restart": true,
+              "templates": []
+            }
+          ],
+          "hash": "9f86b1c3cd4e75f2a74c207f8ea265b633834f1043144abb94157b17ccdb1b57",
+          "holders": [
+            {
+              "consumers": [
+                "pWrk000000000003",
+                "pBil000000000004"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "group",
+              "name": "auth",
+              "object": "gAuth00000000001"
+            },
+            {
+              "consumers": [
+                "pApi000000000001"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "own",
+              "name": "api",
+              "object": "pApi000000000001"
+            },
+            {
+              "consumers": [
+                "pBil000000000004"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "own",
+              "name": "billing",
+              "object": "pBil000000000004"
+            },
+            {
+              "consumers": [
+                "pWeb000000000002"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "own",
+              "name": "web",
+              "object": "pWeb000000000002"
+            }
+          ],
+          "key": "AUTH_SECRET",
+          "mode": "unique",
+          "slots": [
+            "pApi000000000001",
+            "pBil000000000004",
+            "pWeb000000000002",
+            "pWrk000000000003"
+          ],
+          "suggestions": [],
+          "warnings": [
+            "AUTH_SECRET moves out of group auth into each service's own variables (unique values can't be shared)"
+          ],
+          "writes": [
+            {
+              "expected_version": 4,
+              "head": "h-pApi000000000001-4",
+              "kind": "process",
+              "name": "api",
+              "object": "pApi000000000001",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET",
+                  "slot": "pApi000000000001"
+                }
+              ]
+            },
+            {
+              "expected_version": 1,
+              "head": "h-pBil000000000004-1",
+              "kind": "process",
+              "name": "billing",
+              "object": "pBil000000000004",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET",
+                  "slot": "pBil000000000004"
+                }
+              ]
+            },
+            {
+              "expected_version": 2,
+              "head": "h-pWeb000000000002-2",
+              "kind": "process",
+              "name": "web",
+              "object": "pWeb000000000002",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET",
+                  "slot": "pWeb000000000002"
+                }
+              ]
+            },
+            {
+              "expected_version": 7,
+              "head": "h-pWrk000000000003-7",
+              "kind": "process",
+              "name": "worker",
+              "object": "pWrk000000000003",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET",
+                  "slot": "pWrk000000000003"
+                }
+              ]
+            },
+            {
+              "expected_version": 5,
+              "head": "h-gAuth00000000001-5",
+              "kind": "group",
+              "name": "auth",
+              "object": "gAuth00000000001",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "name": "unique-per-service",
+      "request": {
+        "key": "AUTH_SECRET",
+        "mode": "unique"
+      },
+      "snapshot": {
+        "groups": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "group": "auth",
+              "processes": [
+                "pWrk000000000003",
+                "pBil000000000004"
+              ],
+              "removed": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-group"
+                }
+              },
+              "version": 5
+            },
+            "hash": "h-gAuth00000000001-5",
+            "id": "gAuth00000000001",
+            "name": "auth"
+          }
+        ],
+        "processes": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "api",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-api"
+                },
+                "PORT": {
+                  "apply": "hot",
+                  "value": "80"
+                }
+              },
+              "version": 4
+            },
+            "hash": "h-pApi000000000001-4",
+            "id": "pApi000000000001",
+            "name": "api"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "web",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-web"
+                },
+                "SESSION_URL": {
+                  "template": "redis://x/${AUTH_SECRET}"
+                }
+              },
+              "version": 2
+            },
+            "hash": "h-pWeb000000000002-2",
+            "id": "pWeb000000000002",
+            "name": "web"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "worker",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "QUEUE": {
+                  "value": "q"
+                }
+              },
+              "version": 7
+            },
+            "hash": "h-pWrk000000000003-7",
+            "id": "pWrk000000000003",
+            "name": "worker"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "billing",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-billing"
+                },
+                "PROJECT_A_AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-api"
+                }
+              },
+              "version": 1
+            },
+            "hash": "h-pBil000000000004-1",
+            "id": "pBil000000000004",
+            "name": "billing"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "templated",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "template": "${OTHER}"
+                },
+                "OTHER": {
+                  "value": "o"
+                }
+              },
+              "version": 3
+            },
+            "hash": "h-pTpl000000000005-3",
+            "id": "pTpl000000000005",
+            "name": "templated"
+          }
+        ]
+      }
+    },
+    {
+      "expect": {
+        "plan": {
+          "blocked": [],
+          "effects": [
+            {
+              "changed": [
+                "AUTH_SECRET"
+              ],
+              "name": "worker",
+              "process": "pWrk000000000003",
+              "restart": true,
+              "templates": []
+            }
+          ],
+          "hash": "891b0fcac3c79b20311bba2890e69c638183cfc27c079b6554648671640078d7",
+          "holders": [
+            {
+              "consumers": [
+                "pWrk000000000003",
+                "pBil000000000004"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "group",
+              "name": "auth",
+              "object": "gAuth00000000001"
+            }
+          ],
+          "key": "AUTH_SECRET",
+          "mode": "unique",
+          "slots": [
+            "pWrk000000000003"
+          ],
+          "suggestions": [],
+          "warnings": [
+            "AUTH_SECRET moves out of group auth into each service's own variables (unique values can't be shared)"
+          ],
+          "writes": [
+            {
+              "expected_version": 7,
+              "head": "h-pWrk000000000003-7",
+              "kind": "process",
+              "name": "worker",
+              "object": "pWrk000000000003",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET",
+                  "slot": "pWrk000000000003"
+                }
+              ]
+            },
+            {
+              "expected_version": 5,
+              "head": "h-gAuth00000000001-5",
+              "kind": "group",
+              "name": "auth",
+              "object": "gAuth00000000001",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "name": "unique-group-only",
+      "request": {
+        "key": "AUTH_SECRET",
+        "mode": "unique",
+        "only": [
+          "gAuth00000000001"
+        ]
+      },
+      "snapshot": {
+        "groups": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "group": "auth",
+              "processes": [
+                "pWrk000000000003",
+                "pBil000000000004"
+              ],
+              "removed": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-group"
+                }
+              },
+              "version": 5
+            },
+            "hash": "h-gAuth00000000001-5",
+            "id": "gAuth00000000001",
+            "name": "auth"
+          }
+        ],
+        "processes": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "api",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-api"
+                },
+                "PORT": {
+                  "apply": "hot",
+                  "value": "80"
+                }
+              },
+              "version": 4
+            },
+            "hash": "h-pApi000000000001-4",
+            "id": "pApi000000000001",
+            "name": "api"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "web",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-web"
+                },
+                "SESSION_URL": {
+                  "template": "redis://x/${AUTH_SECRET}"
+                }
+              },
+              "version": 2
+            },
+            "hash": "h-pWeb000000000002-2",
+            "id": "pWeb000000000002",
+            "name": "web"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "worker",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "QUEUE": {
+                  "value": "q"
+                }
+              },
+              "version": 7
+            },
+            "hash": "h-pWrk000000000003-7",
+            "id": "pWrk000000000003",
+            "name": "worker"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "billing",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-billing"
+                },
+                "PROJECT_A_AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-api"
+                }
+              },
+              "version": 1
+            },
+            "hash": "h-pBil000000000004-1",
+            "id": "pBil000000000004",
+            "name": "billing"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "templated",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "template": "${OTHER}"
+                },
+                "OTHER": {
+                  "value": "o"
+                }
+              },
+              "version": 3
+            },
+            "hash": "h-pTpl000000000005-3",
+            "id": "pTpl000000000005",
+            "name": "templated"
+          }
+        ]
+      }
+    },
+    {
+      "expect": {
+        "plan": {
+          "blocked": [],
+          "effects": [
+            {
+              "changed": [
+                "PORT"
+              ],
+              "name": "api",
+              "process": "pApi000000000001",
+              "restart": false,
+              "templates": []
+            }
+          ],
+          "hash": "e4cbfba15810da9754f21d797793115f82a551df0dfee3e9f89eedc35a4ce8a4",
+          "holders": [
+            {
+              "consumers": [
+                "pApi000000000001"
+              ],
+              "key": "PORT",
+              "kind": "own",
+              "name": "api",
+              "object": "pApi000000000001"
+            }
+          ],
+          "key": "PORT",
+          "mode": "same",
+          "slots": [
+            "*"
+          ],
+          "suggestions": [],
+          "warnings": [],
+          "writes": [
+            {
+              "expected_version": 4,
+              "head": "h-pApi000000000001-4",
+              "kind": "process",
+              "name": "api",
+              "object": "pApi000000000001",
+              "ops": [
+                {
+                  "key": "PORT",
+                  "slot": "*"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "name": "hot-key-in-one-service",
+      "request": {
+        "key": "PORT",
+        "mode": "same"
+      },
+      "snapshot": {
+        "groups": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "group": "auth",
+              "processes": [
+                "pWrk000000000003",
+                "pBil000000000004"
+              ],
+              "removed": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-group"
+                }
+              },
+              "version": 5
+            },
+            "hash": "h-gAuth00000000001-5",
+            "id": "gAuth00000000001",
+            "name": "auth"
+          }
+        ],
+        "processes": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "api",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-api"
+                },
+                "PORT": {
+                  "apply": "hot",
+                  "value": "80"
+                }
+              },
+              "version": 4
+            },
+            "hash": "h-pApi000000000001-4",
+            "id": "pApi000000000001",
+            "name": "api"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "web",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-web"
+                },
+                "SESSION_URL": {
+                  "template": "redis://x/${AUTH_SECRET}"
+                }
+              },
+              "version": 2
+            },
+            "hash": "h-pWeb000000000002-2",
+            "id": "pWeb000000000002",
+            "name": "web"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "worker",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "QUEUE": {
+                  "value": "q"
+                }
+              },
+              "version": 7
+            },
+            "hash": "h-pWrk000000000003-7",
+            "id": "pWrk000000000003",
+            "name": "worker"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "billing",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-billing"
+                },
+                "PROJECT_A_AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-api"
+                }
+              },
+              "version": 1
+            },
+            "hash": "h-pBil000000000004-1",
+            "id": "pBil000000000004",
+            "name": "billing"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "templated",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "template": "${OTHER}"
+                },
+                "OTHER": {
+                  "value": "o"
+                }
+              },
+              "version": 3
+            },
+            "hash": "h-pTpl000000000005-3",
+            "id": "pTpl000000000005",
+            "name": "templated"
+          }
+        ]
+      }
+    },
+    {
+      "expect": {
+        "error": "\"LD_PRELOAD\" controls program startup or code loading; rotation never touches it"
+      },
+      "name": "dangerous",
+      "request": {
+        "key": "LD_PRELOAD",
+        "mode": "same"
+      },
+      "snapshot": {
+        "groups": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "group": "auth",
+              "processes": [
+                "pWrk000000000003",
+                "pBil000000000004"
+              ],
+              "removed": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-group"
+                }
+              },
+              "version": 5
+            },
+            "hash": "h-gAuth00000000001-5",
+            "id": "gAuth00000000001",
+            "name": "auth"
+          }
+        ],
+        "processes": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "api",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-api"
+                },
+                "PORT": {
+                  "apply": "hot",
+                  "value": "80"
+                }
+              },
+              "version": 4
+            },
+            "hash": "h-pApi000000000001-4",
+            "id": "pApi000000000001",
+            "name": "api"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "web",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-web"
+                },
+                "SESSION_URL": {
+                  "template": "redis://x/${AUTH_SECRET}"
+                }
+              },
+              "version": 2
+            },
+            "hash": "h-pWeb000000000002-2",
+            "id": "pWeb000000000002",
+            "name": "web"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "worker",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "QUEUE": {
+                  "value": "q"
+                }
+              },
+              "version": 7
+            },
+            "hash": "h-pWrk000000000003-7",
+            "id": "pWrk000000000003",
+            "name": "worker"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "billing",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-billing"
+                },
+                "PROJECT_A_AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-api"
+                }
+              },
+              "version": 1
+            },
+            "hash": "h-pBil000000000004-1",
+            "id": "pBil000000000004",
+            "name": "billing"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "templated",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "template": "${OTHER}"
+                },
+                "OTHER": {
+                  "value": "o"
+                }
+              },
+              "version": 3
+            },
+            "hash": "h-pTpl000000000005-3",
+            "id": "pTpl000000000005",
+            "name": "templated"
+          }
+        ]
+      }
+    },
+    {
+      "expect": {
+        "error": "MISSING is not set anywhere you can write"
+      },
+      "name": "not-found",
+      "request": {
+        "key": "MISSING",
+        "mode": "same"
+      },
+      "snapshot": {
+        "groups": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "group": "auth",
+              "processes": [
+                "pWrk000000000003",
+                "pBil000000000004"
+              ],
+              "removed": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-group"
+                }
+              },
+              "version": 5
+            },
+            "hash": "h-gAuth00000000001-5",
+            "id": "gAuth00000000001",
+            "name": "auth"
+          }
+        ],
+        "processes": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "api",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-api"
+                },
+                "PORT": {
+                  "apply": "hot",
+                  "value": "80"
+                }
+              },
+              "version": 4
+            },
+            "hash": "h-pApi000000000001-4",
+            "id": "pApi000000000001",
+            "name": "api"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "web",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-web"
+                },
+                "SESSION_URL": {
+                  "template": "redis://x/${AUTH_SECRET}"
+                }
+              },
+              "version": 2
+            },
+            "hash": "h-pWeb000000000002-2",
+            "id": "pWeb000000000002",
+            "name": "web"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "worker",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "QUEUE": {
+                  "value": "q"
+                }
+              },
+              "version": 7
+            },
+            "hash": "h-pWrk000000000003-7",
+            "id": "pWrk000000000003",
+            "name": "worker"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "billing",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-billing"
+                },
+                "PROJECT_A_AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-api"
+                }
+              },
+              "version": 1
+            },
+            "hash": "h-pBil000000000004-1",
+            "id": "pBil000000000004",
+            "name": "billing"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "templated",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "template": "${OTHER}"
+                },
+                "OTHER": {
+                  "value": "o"
+                }
+              },
+              "version": 3
+            },
+            "hash": "h-pTpl000000000005-3",
+            "id": "pTpl000000000005",
+            "name": "templated"
+          }
+        ]
+      }
+    },
+    {
+      "expect": {
+        "error": "an alias means the same value under another name; unique values per service can't include aliases"
+      },
+      "name": "unique-refuses-aliases",
+      "request": {
+        "also": [
+          {
+            "key": "PROJECT_A_AUTH_SECRET",
+            "object": "pBil000000000004"
+          }
+        ],
+        "key": "AUTH_SECRET",
+        "mode": "unique"
+      },
+      "snapshot": {
+        "groups": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "group": "auth",
+              "processes": [
+                "pWrk000000000003",
+                "pBil000000000004"
+              ],
+              "removed": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-group"
+                }
+              },
+              "version": 5
+            },
+            "hash": "h-gAuth00000000001-5",
+            "id": "gAuth00000000001",
+            "name": "auth"
+          }
+        ],
+        "processes": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "api",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-api"
+                },
+                "PORT": {
+                  "apply": "hot",
+                  "value": "80"
+                }
+              },
+              "version": 4
+            },
+            "hash": "h-pApi000000000001-4",
+            "id": "pApi000000000001",
+            "name": "api"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "web",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-web"
+                },
+                "SESSION_URL": {
+                  "template": "redis://x/${AUTH_SECRET}"
+                }
+              },
+              "version": 2
+            },
+            "hash": "h-pWeb000000000002-2",
+            "id": "pWeb000000000002",
+            "name": "web"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "worker",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "QUEUE": {
+                  "value": "q"
+                }
+              },
+              "version": 7
+            },
+            "hash": "h-pWrk000000000003-7",
+            "id": "pWrk000000000003",
+            "name": "worker"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "billing",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-billing"
+                },
+                "PROJECT_A_AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-api"
+                }
+              },
+              "version": 1
+            },
+            "hash": "h-pBil000000000004-1",
+            "id": "pBil000000000004",
+            "name": "billing"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "templated",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "template": "${OTHER}"
+                },
+                "OTHER": {
+                  "value": "o"
+                }
+              },
+              "version": 3
+            },
+            "hash": "h-pTpl000000000005-3",
+            "id": "pTpl000000000005",
+            "name": "templated"
+          }
+        ]
+      }
+    },
+    {
+      "expect": {
+        "plan": {
+          "blocked": [
+            {
+              "name": "templated",
+              "object": "pTpl000000000005",
+              "why": "AUTH_SECRET is a template here; rotate what it references"
+            }
+          ],
+          "effects": [
+            {
+              "changed": [
+                "AUTH_SECRET"
+              ],
+              "name": "api",
+              "process": "pApi000000000001",
+              "restart": true,
+              "templates": []
+            },
+            {
+              "changed": [
+                "AUTH_SECRET"
+              ],
+              "name": "billing",
+              "process": "pBil000000000004",
+              "restart": true,
+              "templates": []
+            },
+            {
+              "changed": [
+                "AUTH_SECRET",
+                "SESSION_URL"
+              ],
+              "name": "web",
+              "process": "pWeb000000000002",
+              "restart": true,
+              "templates": [
+                "SESSION_URL"
+              ]
+            },
+            {
+              "changed": [
+                "AUTH_SECRET"
+              ],
+              "name": "worker",
+              "process": "pWrk000000000003",
+              "restart": false,
+              "templates": []
+            }
+          ],
+          "hash": "c0227d284943b13b649312ae9d6b7bfb3317d7e115c6469a9cd672c61148e628",
+          "holders": [
+            {
+              "consumers": [
+                "pWrk000000000003",
+                "pBil000000000004"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "group",
+              "name": "auth",
+              "object": "gAuth00000000001"
+            },
+            {
+              "consumers": [
+                "pApi000000000001"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "own",
+              "name": "api",
+              "object": "pApi000000000001"
+            },
+            {
+              "consumers": [
+                "pBil000000000004"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "own",
+              "name": "billing",
+              "object": "pBil000000000004"
+            },
+            {
+              "consumers": [
+                "pWeb000000000002"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "own",
+              "name": "web",
+              "object": "pWeb000000000002"
+            }
+          ],
+          "key": "AUTH_SECRET",
+          "mode": "same",
+          "slots": [
+            "*"
+          ],
+          "strategy": "accept-new-first",
+          "suggestions": [
+            {
+              "key": "PROJECT_A_AUTH_SECRET",
+              "kind": "own",
+              "name": "billing",
+              "object": "pBil000000000004"
+            }
+          ],
+          "warnings": [
+            "AUTH_SECRET has 4 different values today; after this, every place shares one",
+            "3 services restart twice (accept, then switch), and again when the old value retires (retire hot avoids that)"
+          ],
+          "writes": [
+            {
+              "expected_version": 4,
+              "head": "h-pApi000000000001-4",
+              "kind": "process",
+              "name": "api",
+              "object": "pApi000000000001",
+              "ops": [
+                {
+                  "action": "accept",
+                  "key": "AUTH_SECRET",
+                  "slot": "*"
+                }
+              ]
+            },
+            {
+              "expected_version": 5,
+              "head": "h-gAuth00000000001-5",
+              "kind": "group",
+              "name": "auth",
+              "object": "gAuth00000000001",
+              "ops": [
+                {
+                  "action": "accept",
+                  "key": "AUTH_SECRET",
+                  "slot": "*"
+                }
+              ],
+              "stage": 1
+            },
+            {
+              "expected_version": 1,
+              "head": "h-pBil000000000004-1",
+              "kind": "process",
+              "name": "billing",
+              "object": "pBil000000000004",
+              "ops": [
+                {
+                  "action": "accept",
+                  "key": "AUTH_SECRET",
+                  "slot": "*"
+                }
+              ],
+              "stage": 2
+            },
+            {
+              "expected_version": 2,
+              "head": "h-pWeb000000000002-2",
+              "kind": "process",
+              "name": "web",
+              "object": "pWeb000000000002",
+              "ops": [
+                {
+                  "action": "accept",
+                  "key": "AUTH_SECRET",
+                  "slot": "*"
+                }
+              ],
+              "stage": 2
+            },
+            {
+              "expected_version": 5,
+              "kind": "process",
+              "name": "api",
+              "object": "pApi000000000001",
+              "ops": [
+                {
+                  "action": "switch",
+                  "key": "AUTH_SECRET",
+                  "slot": "*"
+                }
+              ],
+              "step": 1
+            },
+            {
+              "expected_version": 6,
+              "kind": "group",
+              "name": "auth",
+              "object": "gAuth00000000001",
+              "ops": [
+                {
+                  "action": "switch",
+                  "key": "AUTH_SECRET",
+                  "slot": "*"
+                }
+              ],
+              "stage": 1,
+              "step": 1
+            },
+            {
+              "expected_version": 2,
+              "kind": "process",
+              "name": "billing",
+              "object": "pBil000000000004",
+              "ops": [
+                {
+                  "action": "switch",
+                  "key": "AUTH_SECRET",
+                  "slot": "*"
+                }
+              ],
+              "stage": 2,
+              "step": 1
+            },
+            {
+              "expected_version": 3,
+              "kind": "process",
+              "name": "web",
+              "object": "pWeb000000000002",
+              "ops": [
+                {
+                  "action": "switch",
+                  "key": "AUTH_SECRET",
+                  "slot": "*"
+                }
+              ],
+              "stage": 2,
+              "step": 1
+            }
+          ]
+        }
+      },
+      "name": "accept-new-first-staged",
+      "request": {
+        "fallback": {
+          "window": 86400
+        },
+        "key": "AUTH_SECRET",
+        "mode": "same",
+        "stages": [
+          [
+            "pApi000000000001"
+          ],
+          [
+            "gAuth00000000001"
+          ]
+        ]
+      },
+      "snapshot": {
+        "groups": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "group": "auth",
+              "processes": [
+                "pWrk000000000003",
+                "pBil000000000004"
+              ],
+              "removed": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-group"
+                }
+              },
+              "version": 5
+            },
+            "hash": "h-gAuth00000000001-5",
+            "id": "gAuth00000000001",
+            "name": "auth"
+          }
+        ],
+        "processes": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "api",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-api"
+                },
+                "PORT": {
+                  "apply": "hot",
+                  "value": "80"
+                }
+              },
+              "version": 4
+            },
+            "hash": "h-pApi000000000001-4",
+            "id": "pApi000000000001",
+            "name": "api"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "web",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-web"
+                },
+                "SESSION_URL": {
+                  "template": "redis://x/${AUTH_SECRET}"
+                }
+              },
+              "version": 2
+            },
+            "hash": "h-pWeb000000000002-2",
+            "id": "pWeb000000000002",
+            "name": "web"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "worker",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "QUEUE": {
+                  "value": "q"
+                }
+              },
+              "version": 7
+            },
+            "hash": "h-pWrk000000000003-7",
+            "id": "pWrk000000000003",
+            "name": "worker"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "billing",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-billing"
+                },
+                "PROJECT_A_AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-api"
+                }
+              },
+              "version": 1
+            },
+            "hash": "h-pBil000000000004-1",
+            "id": "pBil000000000004",
+            "name": "billing"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "templated",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "template": "${OTHER}"
+                },
+                "OTHER": {
+                  "value": "o"
+                }
+              },
+              "version": 3
+            },
+            "hash": "h-pTpl000000000005-3",
+            "id": "pTpl000000000005",
+            "name": "templated"
+          }
+        ]
+      }
+    },
+    {
+      "expect": {
+        "plan": {
+          "blocked": [
+            {
+              "name": "templated",
+              "object": "pTpl000000000005",
+              "why": "AUTH_SECRET is a template here; rotate what it references"
+            }
+          ],
+          "effects": [
+            {
+              "changed": [
+                "AUTH_SECRET"
+              ],
+              "name": "api",
+              "process": "pApi000000000001",
+              "restart": true,
+              "templates": []
+            },
+            {
+              "changed": [
+                "AUTH_SECRET"
+              ],
+              "name": "billing",
+              "process": "pBil000000000004",
+              "restart": true,
+              "templates": []
+            },
+            {
+              "changed": [
+                "AUTH_SECRET",
+                "SESSION_URL"
+              ],
+              "name": "web",
+              "process": "pWeb000000000002",
+              "restart": true,
+              "templates": [
+                "SESSION_URL"
+              ]
+            },
+            {
+              "changed": [
+                "AUTH_SECRET"
+              ],
+              "name": "worker",
+              "process": "pWrk000000000003",
+              "restart": false,
+              "templates": []
+            }
+          ],
+          "hash": "e1bfef3c667ded14f8e7f31097eb058e179893dd96ddb86219db9f89342e04ef",
+          "holders": [
+            {
+              "consumers": [
+                "pWrk000000000003",
+                "pBil000000000004"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "group",
+              "name": "auth",
+              "object": "gAuth00000000001"
+            },
+            {
+              "consumers": [
+                "pApi000000000001"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "own",
+              "name": "api",
+              "object": "pApi000000000001"
+            },
+            {
+              "consumers": [
+                "pBil000000000004"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "own",
+              "name": "billing",
+              "object": "pBil000000000004"
+            },
+            {
+              "consumers": [
+                "pWeb000000000002"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "own",
+              "name": "web",
+              "object": "pWeb000000000002"
+            }
+          ],
+          "key": "AUTH_SECRET",
+          "mode": "same",
+          "slots": [
+            "*"
+          ],
+          "suggestions": [
+            {
+              "key": "PROJECT_A_AUTH_SECRET",
+              "kind": "own",
+              "name": "billing",
+              "object": "pBil000000000004"
+            }
+          ],
+          "warnings": [
+            "the fallback retires hot: a process that doesn't read Dynv through the SDK keeps the retired value in its environment until it restarts (the default retires with a restart)",
+            "AUTH_SECRET has 4 different values today; after this, every place shares one",
+            "3 services restart once"
+          ],
+          "writes": [
+            {
+              "expected_version": 4,
+              "head": "h-pApi000000000001-4",
+              "kind": "process",
+              "name": "api",
+              "object": "pApi000000000001",
+              "ops": [
+                {
+                  "action": "keep",
+                  "key": "AUTH_SECRET",
+                  "slot": "*"
+                }
+              ]
+            },
+            {
+              "expected_version": 5,
+              "head": "h-gAuth00000000001-5",
+              "kind": "group",
+              "name": "auth",
+              "object": "gAuth00000000001",
+              "ops": [
+                {
+                  "action": "keep",
+                  "key": "AUTH_SECRET",
+                  "slot": "*"
+                }
+              ],
+              "stage": 1
+            },
+            {
+              "expected_version": 1,
+              "head": "h-pBil000000000004-1",
+              "kind": "process",
+              "name": "billing",
+              "object": "pBil000000000004",
+              "ops": [
+                {
+                  "action": "keep",
+                  "key": "AUTH_SECRET",
+                  "slot": "*"
+                }
+              ],
+              "stage": 2
+            },
+            {
+              "expected_version": 2,
+              "head": "h-pWeb000000000002-2",
+              "kind": "process",
+              "name": "web",
+              "object": "pWeb000000000002",
+              "ops": [
+                {
+                  "action": "keep",
+                  "key": "AUTH_SECRET",
+                  "slot": "*"
+                }
+              ],
+              "stage": 2
+            }
+          ]
+        }
+      },
+      "name": "simple-keep-list",
+      "request": {
+        "fallback": {
+          "as": "AUTH_SECRET_FALLBACKS",
+          "format": "list",
+          "retire": "hot",
+          "window": 86400
+        },
+        "key": "AUTH_SECRET",
+        "mode": "same",
+        "stages": [
+          [
+            "pApi000000000001"
+          ],
+          [
+            "gAuth00000000001"
+          ]
+        ],
+        "strategy": "simple"
+      },
+      "snapshot": {
+        "groups": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "group": "auth",
+              "processes": [
+                "pWrk000000000003",
+                "pBil000000000004"
+              ],
+              "removed": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-group"
+                }
+              },
+              "version": 5
+            },
+            "hash": "h-gAuth00000000001-5",
+            "id": "gAuth00000000001",
+            "name": "auth"
+          }
+        ],
+        "processes": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "api",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-api"
+                },
+                "PORT": {
+                  "apply": "hot",
+                  "value": "80"
+                }
+              },
+              "version": 4
+            },
+            "hash": "h-pApi000000000001-4",
+            "id": "pApi000000000001",
+            "name": "api"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "web",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-web"
+                },
+                "SESSION_URL": {
+                  "template": "redis://x/${AUTH_SECRET}"
+                }
+              },
+              "version": 2
+            },
+            "hash": "h-pWeb000000000002-2",
+            "id": "pWeb000000000002",
+            "name": "web"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "worker",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "QUEUE": {
+                  "value": "q"
+                }
+              },
+              "version": 7
+            },
+            "hash": "h-pWrk000000000003-7",
+            "id": "pWrk000000000003",
+            "name": "worker"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "billing",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-billing"
+                },
+                "PROJECT_A_AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-api"
+                }
+              },
+              "version": 1
+            },
+            "hash": "h-pBil000000000004-1",
+            "id": "pBil000000000004",
+            "name": "billing"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "templated",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "template": "${OTHER}"
+                },
+                "OTHER": {
+                  "value": "o"
+                }
+              },
+              "version": 3
+            },
+            "hash": "h-pTpl000000000005-3",
+            "id": "pTpl000000000005",
+            "name": "templated"
+          }
+        ]
+      }
+    },
+    {
+      "expect": {
+        "plan": {
+          "blocked": [
+            {
+              "name": "templated",
+              "object": "pTpl000000000005",
+              "why": "AUTH_SECRET is a template here; rotate what it references"
+            }
+          ],
+          "effects": [
+            {
+              "changed": [
+                "AUTH_SECRET"
+              ],
+              "name": "api",
+              "process": "pApi000000000001",
+              "restart": true,
+              "templates": []
+            },
+            {
+              "changed": [
+                "AUTH_SECRET"
+              ],
+              "name": "billing",
+              "process": "pBil000000000004",
+              "restart": true,
+              "templates": []
+            },
+            {
+              "changed": [
+                "AUTH_SECRET",
+                "SESSION_URL"
+              ],
+              "name": "web",
+              "process": "pWeb000000000002",
+              "restart": true,
+              "templates": [
+                "SESSION_URL"
+              ]
+            },
+            {
+              "changed": [
+                "AUTH_SECRET"
+              ],
+              "name": "worker",
+              "process": "pWrk000000000003",
+              "restart": true,
+              "templates": []
+            }
+          ],
+          "hash": "06df6ced12af749bc7dfc59ff8489a4b7e1905014f40c8b8398a2e0681d1b5b7",
+          "holders": [
+            {
+              "consumers": [
+                "pWrk000000000003",
+                "pBil000000000004"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "group",
+              "name": "auth",
+              "object": "gAuth00000000001"
+            },
+            {
+              "consumers": [
+                "pApi000000000001"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "own",
+              "name": "api",
+              "object": "pApi000000000001"
+            },
+            {
+              "consumers": [
+                "pBil000000000004"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "own",
+              "name": "billing",
+              "object": "pBil000000000004"
+            },
+            {
+              "consumers": [
+                "pWeb000000000002"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "own",
+              "name": "web",
+              "object": "pWeb000000000002"
+            }
+          ],
+          "key": "AUTH_SECRET",
+          "mode": "unique",
+          "slots": [
+            "pApi000000000001",
+            "pBil000000000004",
+            "pWeb000000000002",
+            "pWrk000000000003"
+          ],
+          "suggestions": [],
+          "warnings": [
+            "AUTH_SECRET moves out of group auth into each service's own variables (unique values can't be shared)",
+            "4 services restart once, and again when the old value retires (retire hot avoids that)"
+          ],
+          "writes": [
+            {
+              "expected_version": 4,
+              "head": "h-pApi000000000001-4",
+              "kind": "process",
+              "name": "api",
+              "object": "pApi000000000001",
+              "ops": [
+                {
+                  "action": "keep",
+                  "key": "AUTH_SECRET",
+                  "slot": "pApi000000000001"
+                }
+              ]
+            },
+            {
+              "expected_version": 1,
+              "head": "h-pBil000000000004-1",
+              "kind": "process",
+              "name": "billing",
+              "object": "pBil000000000004",
+              "ops": [
+                {
+                  "action": "keep",
+                  "key": "AUTH_SECRET",
+                  "slot": "pBil000000000004"
+                }
+              ]
+            },
+            {
+              "expected_version": 2,
+              "head": "h-pWeb000000000002-2",
+              "kind": "process",
+              "name": "web",
+              "object": "pWeb000000000002",
+              "ops": [
+                {
+                  "action": "keep",
+                  "key": "AUTH_SECRET",
+                  "slot": "pWeb000000000002"
+                }
+              ]
+            },
+            {
+              "expected_version": 7,
+              "head": "h-pWrk000000000003-7",
+              "kind": "process",
+              "name": "worker",
+              "object": "pWrk000000000003",
+              "ops": [
+                {
+                  "action": "keep",
+                  "key": "AUTH_SECRET",
+                  "slot": "pWrk000000000003"
+                }
+              ]
+            },
+            {
+              "expected_version": 5,
+              "head": "h-gAuth00000000001-5",
+              "kind": "group",
+              "name": "auth",
+              "object": "gAuth00000000001",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "name": "unique-keep",
+      "request": {
+        "fallback": {
+          "window": 3600
+        },
+        "key": "AUTH_SECRET",
+        "mode": "unique"
+      },
+      "snapshot": {
+        "groups": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "group": "auth",
+              "processes": [
+                "pWrk000000000003",
+                "pBil000000000004"
+              ],
+              "removed": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-group"
+                }
+              },
+              "version": 5
+            },
+            "hash": "h-gAuth00000000001-5",
+            "id": "gAuth00000000001",
+            "name": "auth"
+          }
+        ],
+        "processes": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "api",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-api"
+                },
+                "PORT": {
+                  "apply": "hot",
+                  "value": "80"
+                }
+              },
+              "version": 4
+            },
+            "hash": "h-pApi000000000001-4",
+            "id": "pApi000000000001",
+            "name": "api"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "web",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-web"
+                },
+                "SESSION_URL": {
+                  "template": "redis://x/${AUTH_SECRET}"
+                }
+              },
+              "version": 2
+            },
+            "hash": "h-pWeb000000000002-2",
+            "id": "pWeb000000000002",
+            "name": "web"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "worker",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "QUEUE": {
+                  "value": "q"
+                }
+              },
+              "version": 7
+            },
+            "hash": "h-pWrk000000000003-7",
+            "id": "pWrk000000000003",
+            "name": "worker"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "billing",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-billing"
+                },
+                "PROJECT_A_AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-api"
+                }
+              },
+              "version": 1
+            },
+            "hash": "h-pBil000000000004-1",
+            "id": "pBil000000000004",
+            "name": "billing"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "templated",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "template": "${OTHER}"
+                },
+                "OTHER": {
+                  "value": "o"
+                }
+              },
+              "version": 3
+            },
+            "hash": "h-pTpl000000000005-3",
+            "id": "pTpl000000000005",
+            "name": "templated"
+          }
+        ]
+      }
+    },
+    {
+      "expect": {
+        "error": "the fallback window is 60 s to 90 days"
+      },
+      "name": "window-too-short",
+      "request": {
+        "fallback": {
+          "window": 10
+        },
+        "key": "AUTH_SECRET",
+        "mode": "same"
+      },
+      "snapshot": {
+        "groups": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "group": "auth",
+              "processes": [
+                "pWrk000000000003",
+                "pBil000000000004"
+              ],
+              "removed": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-group"
+                }
+              },
+              "version": 5
+            },
+            "hash": "h-gAuth00000000001-5",
+            "id": "gAuth00000000001",
+            "name": "auth"
+          }
+        ],
+        "processes": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "api",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-api"
+                },
+                "PORT": {
+                  "apply": "hot",
+                  "value": "80"
+                }
+              },
+              "version": 4
+            },
+            "hash": "h-pApi000000000001-4",
+            "id": "pApi000000000001",
+            "name": "api"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "web",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-web"
+                },
+                "SESSION_URL": {
+                  "template": "redis://x/${AUTH_SECRET}"
+                }
+              },
+              "version": 2
+            },
+            "hash": "h-pWeb000000000002-2",
+            "id": "pWeb000000000002",
+            "name": "web"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "worker",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "QUEUE": {
+                  "value": "q"
+                }
+              },
+              "version": 7
+            },
+            "hash": "h-pWrk000000000003-7",
+            "id": "pWrk000000000003",
+            "name": "worker"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "billing",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-billing"
+                },
+                "PROJECT_A_AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-api"
+                }
+              },
+              "version": 1
+            },
+            "hash": "h-pBil000000000004-1",
+            "id": "pBil000000000004",
+            "name": "billing"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "templated",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "template": "${OTHER}"
+                },
+                "OTHER": {
+                  "value": "o"
+                }
+              },
+              "version": 3
+            },
+            "hash": "h-pTpl000000000005-3",
+            "id": "pTpl000000000005",
+            "name": "templated"
+          }
+        ]
+      }
+    },
+    {
+      "expect": {
+        "plan": {
+          "blocked": [
+            {
+              "name": "templated",
+              "object": "pTpl000000000005",
+              "why": "AUTH_SECRET is a template here; rotate what it references"
+            }
+          ],
+          "effects": [
+            {
+              "changed": [
+                "AUTH_SECRET"
+              ],
+              "name": "api",
+              "process": "pApi000000000001",
+              "restart": true,
+              "templates": []
+            },
+            {
+              "changed": [
+                "AUTH_SECRET"
+              ],
+              "name": "billing",
+              "process": "pBil000000000004",
+              "restart": true,
+              "templates": []
+            },
+            {
+              "changed": [
+                "AUTH_SECRET",
+                "SESSION_URL"
+              ],
+              "name": "web",
+              "process": "pWeb000000000002",
+              "restart": true,
+              "templates": [
+                "SESSION_URL"
+              ]
+            },
+            {
+              "changed": [
+                "AUTH_SECRET"
+              ],
+              "name": "worker",
+              "process": "pWrk000000000003",
+              "restart": false,
+              "templates": []
+            }
+          ],
+          "hash": "eaa6e2ebfc30b1413a103f023e84b128c12076ecfb3bca301d325e8f58556e66",
+          "holders": [
+            {
+              "consumers": [
+                "pWrk000000000003",
+                "pBil000000000004"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "group",
+              "name": "auth",
+              "object": "gAuth00000000001"
+            },
+            {
+              "consumers": [
+                "pApi000000000001"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "own",
+              "name": "api",
+              "object": "pApi000000000001"
+            },
+            {
+              "consumers": [
+                "pBil000000000004"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "own",
+              "name": "billing",
+              "object": "pBil000000000004"
+            },
+            {
+              "consumers": [
+                "pWeb000000000002"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "own",
+              "name": "web",
+              "object": "pWeb000000000002"
+            }
+          ],
+          "key": "AUTH_SECRET",
+          "mode": "same",
+          "slots": [
+            "*"
+          ],
+          "suggestions": [
+            {
+              "key": "PROJECT_A_AUTH_SECRET",
+              "kind": "own",
+              "name": "billing",
+              "object": "pBil000000000004"
+            }
+          ],
+          "warnings": [
+            "AUTH_SECRET has 4 different values today; after this, every place shares one"
+          ],
+          "writes": [
+            {
+              "expected_version": 4,
+              "head": "h-pApi000000000001-4",
+              "kind": "process",
+              "name": "api",
+              "object": "pApi000000000001",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET",
+                  "slot": "*"
+                }
+              ]
+            },
+            {
+              "expected_version": 1,
+              "head": "h-pBil000000000004-1",
+              "kind": "process",
+              "name": "billing",
+              "object": "pBil000000000004",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET",
+                  "slot": "*"
+                }
+              ]
+            },
+            {
+              "expected_version": 2,
+              "head": "h-pWeb000000000002-2",
+              "kind": "process",
+              "name": "web",
+              "object": "pWeb000000000002",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET",
+                  "slot": "*"
+                }
+              ]
+            },
+            {
+              "expected_version": 5,
+              "head": "h-gAuth00000000001-5",
+              "kind": "group",
+              "name": "auth",
+              "object": "gAuth00000000001",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET",
+                  "slot": "*"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "name": "supplied-value-source",
+      "request": {
+        "key": "AUTH_SECRET",
+        "mode": "same",
+        "source": "value:803473a63cfa3ba0eeb3a31dffefa21226f5aae7e9b258e43ae4ee640bbb4086"
+      },
+      "snapshot": {
+        "groups": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "group": "auth",
+              "processes": [
+                "pWrk000000000003",
+                "pBil000000000004"
+              ],
+              "removed": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-group"
+                }
+              },
+              "version": 5
+            },
+            "hash": "h-gAuth00000000001-5",
+            "id": "gAuth00000000001",
+            "name": "auth"
+          }
+        ],
+        "processes": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "api",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-api"
+                },
+                "PORT": {
+                  "apply": "hot",
+                  "value": "80"
+                }
+              },
+              "version": 4
+            },
+            "hash": "h-pApi000000000001-4",
+            "id": "pApi000000000001",
+            "name": "api"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "web",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-web"
+                },
+                "SESSION_URL": {
+                  "template": "redis://x/${AUTH_SECRET}"
+                }
+              },
+              "version": 2
+            },
+            "hash": "h-pWeb000000000002-2",
+            "id": "pWeb000000000002",
+            "name": "web"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "worker",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "QUEUE": {
+                  "value": "q"
+                }
+              },
+              "version": 7
+            },
+            "hash": "h-pWrk000000000003-7",
+            "id": "pWrk000000000003",
+            "name": "worker"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "billing",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-billing"
+                },
+                "PROJECT_A_AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-api"
+                }
+              },
+              "version": 1
+            },
+            "hash": "h-pBil000000000004-1",
+            "id": "pBil000000000004",
+            "name": "billing"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "templated",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "template": "${OTHER}"
+                },
+                "OTHER": {
+                  "value": "o"
+                }
+              },
+              "version": 3
+            },
+            "hash": "h-pTpl000000000005-3",
+            "id": "pTpl000000000005",
+            "name": "templated"
+          }
+        ]
+      }
+    },
+    {
+      "expect": {
+        "plan": {
+          "blocked": [
+            {
+              "name": "templated",
+              "object": "pTpl000000000005",
+              "why": "AUTH_SECRET is a template here; rotate what it references"
+            }
+          ],
+          "effects": [
+            {
+              "changed": [
+                "AUTH_SECRET"
+              ],
+              "name": "api",
+              "process": "pApi000000000001",
+              "restart": true,
+              "templates": []
+            },
+            {
+              "changed": [
+                "AUTH_SECRET"
+              ],
+              "name": "billing",
+              "process": "pBil000000000004",
+              "restart": true,
+              "templates": []
+            },
+            {
+              "changed": [
+                "AUTH_SECRET",
+                "SESSION_URL"
+              ],
+              "name": "web",
+              "process": "pWeb000000000002",
+              "restart": true,
+              "templates": [
+                "SESSION_URL"
+              ]
+            },
+            {
+              "changed": [
+                "AUTH_SECRET"
+              ],
+              "name": "worker",
+              "process": "pWrk000000000003",
+              "restart": true,
+              "templates": []
+            }
+          ],
+          "hash": "c9d2dfa5cb38180191f91c8fb4cdf80ed7ad72ead8753689a39ae703441f9e6d",
+          "holders": [
+            {
+              "consumers": [
+                "pWrk000000000003",
+                "pBil000000000004"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "group",
+              "name": "auth",
+              "object": "gAuth00000000001"
+            },
+            {
+              "consumers": [
+                "pApi000000000001"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "own",
+              "name": "api",
+              "object": "pApi000000000001"
+            },
+            {
+              "consumers": [
+                "pBil000000000004"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "own",
+              "name": "billing",
+              "object": "pBil000000000004"
+            },
+            {
+              "consumers": [
+                "pWeb000000000002"
+              ],
+              "key": "AUTH_SECRET",
+              "kind": "own",
+              "name": "web",
+              "object": "pWeb000000000002"
+            }
+          ],
+          "key": "AUTH_SECRET",
+          "mode": "unique",
+          "slots": [
+            "pApi000000000001",
+            "pBil000000000004",
+            "pWeb000000000002",
+            "pWrk000000000003"
+          ],
+          "suggestions": [],
+          "warnings": [
+            "AUTH_SECRET moves out of group auth into each service's own variables (unique values can't be shared)"
+          ],
+          "writes": [
+            {
+              "expected_version": 4,
+              "head": "h-pApi000000000001-4",
+              "kind": "process",
+              "name": "api",
+              "object": "pApi000000000001",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET",
+                  "slot": "pApi000000000001"
+                }
+              ]
+            },
+            {
+              "expected_version": 1,
+              "head": "h-pBil000000000004-1",
+              "kind": "process",
+              "name": "billing",
+              "object": "pBil000000000004",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET",
+                  "slot": "pBil000000000004"
+                }
+              ]
+            },
+            {
+              "expected_version": 2,
+              "head": "h-pWeb000000000002-2",
+              "kind": "process",
+              "name": "web",
+              "object": "pWeb000000000002",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET",
+                  "slot": "pWeb000000000002"
+                }
+              ]
+            },
+            {
+              "expected_version": 7,
+              "head": "h-pWrk000000000003-7",
+              "kind": "process",
+              "name": "worker",
+              "object": "pWrk000000000003",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET",
+                  "slot": "pWrk000000000003"
+                }
+              ]
+            },
+            {
+              "expected_version": 5,
+              "head": "h-gAuth00000000001-5",
+              "kind": "group",
+              "name": "auth",
+              "object": "gAuth00000000001",
+              "ops": [
+                {
+                  "key": "AUTH_SECRET"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "name": "generated-source",
+      "request": {
+        "key": "AUTH_SECRET",
+        "mode": "unique",
+        "source": "generate:base64:32"
+      },
+      "snapshot": {
+        "groups": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "group": "auth",
+              "processes": [
+                "pWrk000000000003",
+                "pBil000000000004"
+              ],
+              "removed": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-group"
+                }
+              },
+              "version": 5
+            },
+            "hash": "h-gAuth00000000001-5",
+            "id": "gAuth00000000001",
+            "name": "auth"
+          }
+        ],
+        "processes": [
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "api",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-api"
+                },
+                "PORT": {
+                  "apply": "hot",
+                  "value": "80"
+                }
+              },
+              "version": 4
+            },
+            "hash": "h-pApi000000000001-4",
+            "id": "pApi000000000001",
+            "name": "api"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "web",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-web"
+                },
+                "SESSION_URL": {
+                  "template": "redis://x/${AUTH_SECRET}"
+                }
+              },
+              "version": 2
+            },
+            "hash": "h-pWeb000000000002-2",
+            "id": "pWeb000000000002",
+            "name": "web"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "worker",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "QUEUE": {
+                  "value": "q"
+                }
+              },
+              "version": 7
+            },
+            "hash": "h-pWrk000000000003-7",
+            "id": "pWrk000000000003",
+            "name": "worker"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "billing",
+              "removed": [],
+              "shared": [
+                "gAuth00000000001"
+              ],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "value": "s-billing"
+                },
+                "PROJECT_A_AUTH_SECRET": {
+                  "apply": "hot",
+                  "value": "s-api"
+                }
+              },
+              "version": 1
+            },
+            "hash": "h-pBil000000000004-1",
+            "id": "pBil000000000004",
+            "name": "billing"
+          },
+          {
+            "doc": {
+              "default_apply": "restart",
+              "process": "templated",
+              "removed": [],
+              "tokens": [],
+              "vars": {
+                "AUTH_SECRET": {
+                  "template": "${OTHER}"
+                },
+                "OTHER": {
+                  "value": "o"
+                }
+              },
+              "version": 3
+            },
+            "hash": "h-pTpl000000000005-3",
+            "id": "pTpl000000000005",
+            "name": "templated"
+          }
+        ]
+      }
+    }
+  ],
+  "commitments": [
+    {
+      "account": "acct",
+      "ak": "0707070707070707070707070707070707070707070707070707070707070707",
+      "commitment": "803473a63cfa3ba0eeb3a31dffefa21226f5aae7e9b258e43ae4ee640bbb4086",
+      "value": "sk_live_1"
+    }
+  ]
+}

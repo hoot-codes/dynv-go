@@ -1,0 +1,136 @@
+{
+  "cases": [
+    {
+      "name": "BOM CRLF export comments and empty values",
+      "input": "\ufeff  # indented comment\r\n\r\nexport FOO=bar\r\nEMPTY=\r\nQUOTED_EMPTY=\"\"\r\nCOMMENT_EMPTY= # comment\r\n",
+      "vars": [["FOO", "bar"], ["EMPTY", ""], ["QUOTED_EMPTY", ""], ["COMMENT_EMPTY", ""]],
+      "errors": []
+    },
+    {
+      "name": "single quotes are literal including hash and backslashes",
+      "input": "SINGLE='literal $HOME \\n # not a comment' # real comment",
+      "vars": [["SINGLE", "literal $HOME \\n # not a comment"]],
+      "errors": []
+    },
+    {
+      "name": "double quote escapes",
+      "input": "DOUBLE=\"a\\nb\\rc\\td \\\"q\\\" \\\\ \\$HOME\"",
+      "vars": [["DOUBLE", "a\nb\rc\td \"q\" \\ $HOME"]],
+      "errors": []
+    },
+    {
+      "name": "unknown double quote escape keeps its backslash",
+      "input": "PATH_LIKE=\"C:\\work\\folder\\q\"",
+      "vars": [["PATH_LIKE", "C:\\work\\folder\\q"]],
+      "errors": []
+    },
+    {
+      "name": "multiline double quoted value with CRLF",
+      "input": "PEM=\"-----BEGIN FAKE-----\r\nabc\r\n-----END FAKE-----\"\r\nNEXT=ok",
+      "vars": [["PEM", "-----BEGIN FAKE-----\nabc\n-----END FAKE-----"], ["NEXT", "ok"]],
+      "errors": []
+    },
+    {
+      "name": "multiline single quoted value",
+      "input": "MULTI='one\ntwo # still value'\nAFTER=yes",
+      "vars": [["MULTI", "one\ntwo # still value"], ["AFTER", "yes"]],
+      "errors": []
+    },
+    {
+      "name": "inline comments need whitespace but leading hash starts one",
+      "input": "URL=https://example.test/#fragment\nHASH=abc#def\nTRAILING=value   # comment\nLEADING=# comment",
+      "vars": [["URL", "https://example.test/#fragment"], ["HASH", "abc#def"], ["TRAILING", "value"], ["LEADING", ""]],
+      "errors": []
+    },
+    {
+      "name": "quoted values may have trailing comments",
+      "input": "A='x'#comment\nB=\"y\"   # comment",
+      "vars": [["A", "x"], ["B", "y"]],
+      "errors": []
+    },
+    {
+      "name": "spaces around assignment and export tab",
+      "input": "  KEY = value  \nexport\tOTHER = two ",
+      "vars": [["KEY", "value"], ["OTHER", "two"]],
+      "errors": []
+    },
+    {
+      "name": "Unicode spaces are content not inline whitespace",
+      "input": "\u00a0KEY\u00a0=\u00a0value\u00a0\nNEXT=\u0085value\u2028",
+      "vars": [["\u00a0KEY\u00a0", "\u00a0value\u00a0"], ["NEXT", "\u0085value\u2028"]],
+      "errors": []
+    },
+    {
+      "name": "BOM is stripped only at file start",
+      "input": "FIRST=ok\n\ufeffSECOND=\ufeffvalue\ufeff\nTHIRD=ok\ufeff",
+      "vars": [["FIRST", "ok"], ["\ufeffSECOND", "\ufeffvalue\ufeff"], ["THIRD", "ok\ufeff"]],
+      "errors": []
+    },
+    {
+      "name": "NEL and Unicode spaces do not start comments or export",
+      "input": "export\u0085KEY=value\nHASH=value\u00a0#literal\nOTHER=value\t#comment",
+      "vars": [["export\u0085KEY", "value"], ["HASH", "value\u00a0#literal"], ["OTHER", "value"]],
+      "errors": []
+    },
+    {
+      "name": "bare carriage returns are line endings",
+      "input": "A=one\rB=two\r\nC=three\nD='four\rfive'\rE=six",
+      "vars": [["A", "one"], ["B", "two"], ["C", "three"], ["D", "four\nfive"], ["E", "six"]],
+      "errors": []
+    },
+    {
+      "name": "vertical tab and form feed stay in values",
+      "input": "A=\u000bvalue\u000c\nB=ok",
+      "vars": [["A", "\u000bvalue\u000c"], ["B", "ok"]],
+      "errors": []
+    },
+    {
+      "name": "Unicode whitespace after quotes is not ignored",
+      "input": "A=\"x\"\u00a0#not-a-comment\nB=ok",
+      "vars": [["B", "ok"]],
+      "errors": [1]
+    },
+    {
+      "name": "duplicates remain ordered for last assignment wins",
+      "input": "A=one\nA=two",
+      "vars": [["A", "one"], ["A", "two"]],
+      "errors": []
+    },
+    {
+      "name": "syntax errors do not echo values",
+      "input": "garbage line\n=empty-key\nGOOD=ok",
+      "vars": [["GOOD", "ok"]],
+      "errors": [1, 2]
+    },
+    {
+      "name": "unterminated double quote error hides the secret value",
+      "input": "SECRET=\"unterminated secret",
+      "vars": [],
+      "errors": [1]
+    },
+    {
+      "name": "unterminated single quote error hides the secret value",
+      "input": "SECRET='unterminated secret",
+      "vars": [],
+      "errors": [1]
+    },
+    {
+      "name": "text after a closing quote is rejected without echoing it",
+      "input": "A=\"secret\" trailing\nB=ok",
+      "vars": [["B", "ok"]],
+      "errors": [1]
+    }
+  ],
+  "serialize": [
+    { "name": "plain", "value": "abcXYZ019_./:@%+,=-", "expected": "abcXYZ019_./:@%+,=-" },
+    { "name": "empty", "value": "", "expected": "\"\"" },
+    { "name": "spaces and hash", "value": "a # b", "expected": "\"a # b\"" },
+    { "name": "double quote", "value": "a\"b", "expected": "\"a\\\"b\"" },
+    { "name": "single quote", "value": "a'b", "expected": "\"a'b\"" },
+    { "name": "backslash", "value": "a\\b", "expected": "\"a\\\\b\"" },
+    { "name": "dollar", "value": "$HOME", "expected": "\"\\$HOME\"" },
+    { "name": "newlines tabs carriage return", "value": "a\nb\rc\td", "expected": "\"a\\nb\\rc\\td\"" },
+    { "name": "terminal controls use lossless unicode escapes", "value": "\u0001\u000b\u000c\u001b]0;title\u0007\u007f\u0085\u009d", "expected": "\"\\u0001\\u000b\\u000c\\u001b]0;title\\u0007\\u007f\\u0085\\u009d\"" },
+    { "name": "NBSP and BOM are not inline whitespace", "value": "\u00a0value\ufeff", "expected": "\u00a0value\ufeff" }
+  ]
+}

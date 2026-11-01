@@ -1,0 +1,359 @@
+{
+  "cases": [
+    {
+      "rng_hex": "2101c54fd1d01ab22574cb378aaef5b1",
+      "spec": "hex:16",
+      "value": "2101c54fd1d01ab22574cb378aaef5b1"
+    },
+    {
+      "rng_hex": "420282061a2359b62a3bca3d09243efebfff359b88e88a99e764043520d9c377",
+      "spec": "hex:32",
+      "value": "420282061a2359b62a3bca3d09243efebfff359b88e88a99e764043520d9c377"
+    },
+    {
+      "rng_hex": "63034749cbf343040f4f010a838acb4fb7f7a482bb5161d6154da1d1fbe79463d053dd9ed8459bdaa59f569195ea1960e176a1c3807f4357b42d4274a0a97c05",
+      "spec": "hex:64",
+      "value": "63034749cbf343040f4f010a838acb4fb7f7a482bb5161d6154da1d1fbe79463d053dd9ed8459bdaa59f569195ea1960e176a1c3807f4357b42d4274a0a97c05"
+    },
+    {
+      "rng_hex": "8404040c3467f953a045fcee2b748e7a5a2d98a98b21320e890835860146a1f47a2202c811ad3e5dc3751a1d6a672ab661d0d89c4a10977a1640bd2ae332a368633b467e834a03fed29281039470c3c2b7eef6a40a58e93487e706d34576f3421dd8e568c59f86782300a399ed3ac41507d2abbcb5abd5b2bf32cf6c3b434e7791cd4f3a0aeefc2ebb26b8d3682ee52f852428baed4ea5ece557a63cb47d30379465d677bbd2dcf2374bc7b11f994a22ddd9309a171bb71e25c9665d332473b814be6b4a118724fee83ded184ad067d1619ee411fc8c74e76004d96fb3b5dd96a0ec96c4a23bfad636e2db4a26f8f2e97da7d65f017b5b50d059e6a0b6f0cdc3f7dd1ed0f1b9d00a319098ec19d0c26a2a73ced01bd4b9f237c0edcf443ad205bd67ce57cf0d4b0c577ff3bd16f113edb8c43e2f37cd504313ea8b4aba3176e758769e3efbda315a33c0cd6daa5f850164033dee6f612538ed2a02dfe227970ff37c5a94016bb6dd9aa602871be4597d2bd7159bb8e9c693b11b05f66a54bb89cfec245e7f6c4b0e979ae23551109cec412579e3b72fe2a4af259d6df14899b7494ddfb8f4c0b01904d430c19578e22ab6019a3cbcdea8611aae58a318f1a24420943ad3b94643f692afa2a5893fcf59d4090efc329fc70687ca137717082d7d0cd54019c57d117b242fff04fdad1921bd9dec426c879e63911a6162640d6c72d216143dc859cd9e2d169e2b42b9e073894a24d1188a09e4e061f6d575e08471b7827f98fcc128fabd77f239ef7e2a534c6c536a3055cbb41958c28a278c5970a102ab3c22744c783f609ddca75341dc35463de1f66eac18a330b50b0454847012e6f60f796c9af55250755f1ee782b557ff14edef8f109e2d403b28cc0b1595890d50697e6bb1683583cdfa99aa1ccaa6db30c5e207b5de6bc07256c12b7217a661a97d2b1856989770dc580346cec730774a665e80ab7d077e5accfc5f28250c8b4f3cb243ded6b39a91f78a7e9f71e125c36a4a5a1a76a47cae05c229a4133affd9121a1130b8591e9b2ce36255160f243628d8a788575f342fa8b79aa481122c0f02ee0301a1693877d174c9450d5a2eb0ac92c1055e542c4a8ae8b0339d02e7678caec0cda6ed2485ff3e2e42bbbfed0200e17d0b6ca5b51b34b099c06d6155dc270df087ce96929ab86ee444f8ff1734ae2574c3ab43b0d7ad0e8f03fc140e8d8206cb62e5e64eeb873e42a250bf23083f969add639770e03108b0670cd209fdfc5bfe5561c0ec6ea37dd4390bd48f18e2211dfc36457ddaae7bb65e5f10e3d149f48f65b7786b0276483cd72454aae0079b93735541eb6103604954c1a8ba084f325f9c9783a444d997a4a48cc94199db87d1925aae3c63b9aeed8450edaa9f941b47c35f0b58ea3a7bf626cd4e519db78a46ec2619dc1592a492b573",
+      "spec": "hex:1024",
+      "value": "8404040c3467f953a045fcee2b748e7a5a2d98a98b21320e890835860146a1f47a2202c811ad3e5dc3751a1d6a672ab661d0d89c4a10977a1640bd2ae332a368633b467e834a03fed29281039470c3c2b7eef6a40a58e93487e706d34576f3421dd8e568c59f86782300a399ed3ac41507d2abbcb5abd5b2bf32cf6c3b434e7791cd4f3a0aeefc2ebb26b8d3682ee52f852428baed4ea5ece557a63cb47d30379465d677bbd2dcf2374bc7b11f994a22ddd9309a171bb71e25c9665d332473b814be6b4a118724fee83ded184ad067d1619ee411fc8c74e76004d96fb3b5dd96a0ec96c4a23bfad636e2db4a26f8f2e97da7d65f017b5b50d059e6a0b6f0cdc3f7dd1ed0f1b9d00a319098ec19d0c26a2a73ced01bd4b9f237c0edcf443ad205bd67ce57cf0d4b0c577ff3bd16f113edb8c43e2f37cd504313ea8b4aba3176e758769e3efbda315a33c0cd6daa5f850164033dee6f612538ed2a02dfe227970ff37c5a94016bb6dd9aa602871be4597d2bd7159bb8e9c693b11b05f66a54bb89cfec245e7f6c4b0e979ae23551109cec412579e3b72fe2a4af259d6df14899b7494ddfb8f4c0b01904d430c19578e22ab6019a3cbcdea8611aae58a318f1a24420943ad3b94643f692afa2a5893fcf59d4090efc329fc70687ca137717082d7d0cd54019c57d117b242fff04fdad1921bd9dec426c879e63911a6162640d6c72d216143dc859cd9e2d169e2b42b9e073894a24d1188a09e4e061f6d575e08471b7827f98fcc128fabd77f239ef7e2a534c6c536a3055cbb41958c28a278c5970a102ab3c22744c783f609ddca75341dc35463de1f66eac18a330b50b0454847012e6f60f796c9af55250755f1ee782b557ff14edef8f109e2d403b28cc0b1595890d50697e6bb1683583cdfa99aa1ccaa6db30c5e207b5de6bc07256c12b7217a661a97d2b1856989770dc580346cec730774a665e80ab7d077e5accfc5f28250c8b4f3cb243ded6b39a91f78a7e9f71e125c36a4a5a1a76a47cae05c229a4133affd9121a1130b8591e9b2ce36255160f243628d8a788575f342fa8b79aa481122c0f02ee0301a1693877d174c9450d5a2eb0ac92c1055e542c4a8ae8b0339d02e7678caec0cda6ed2485ff3e2e42bbbfed0200e17d0b6ca5b51b34b099c06d6155dc270df087ce96929ab86ee444f8ff1734ae2574c3ab43b0d7ad0e8f03fc140e8d8206cb62e5e64eeb873e42a250bf23083f969add639770e03108b0670cd209fdfc5bfe5561c0ec6ea37dd4390bd48f18e2211dfc36457ddaae7bb65e5f10e3d149f48f65b7786b0276483cd72454aae0079b93735541eb6103604954c1a8ba084f325f9c9783a444d997a4a48cc94199db87d1925aae3c63b9aeed8450edaa9f941b47c35f0b58ea3a7bf626cd4e519db78a46ec2619dc1592a492b573"
+    },
+    {
+      "rng_hex": "a505c143e5b7e3e1853137d9a1da7bcb",
+      "spec": "base64:16",
+      "value": "pQXBQ+W34+GFMTfZodp7yw=="
+    },
+    {
+      "rng_hex": "c606860a2e44a0e58a7e36d32250b084e5d2ad3203c9b8976e6c31b3219f6283",
+      "spec": "base64:32",
+      "value": "xgaGCi5EoOWKfjbTIlCwhOXSrTIDybiXbmwxsyGfYoM="
+    },
+    {
+      "rng_hex": "e7074345ff94ba57af0afde4a8fe4535",
+      "spec": "base64url:16",
+      "value": "5wdDRf-UulevCv3kqP5FNQ"
+    },
+    {
+      "rng_hex": "0808297a8c0cfcd7f2e5a08fc452c5bff42509cb97039d232615ee2dfdb52be5",
+      "spec": "base64url:32",
+      "value": "CAgpeowM_Nfy5aCPxFLFv_QlCcuXA50jJhXuLf21K-U"
+    },
+    {
+      "rng_hex": "2909ec355ddce665d7916bb84efc300efc2d98d2a4ba766cd43c4bc9268b7cf119d7848fc89bbee5c3ec447f2670619ab404cc50807803e9a56320673964b114d03fca3a345992e2355df990fbfd5eb9d306c6d77541a06c695bd3fa0c531c6adbcb95cd9e18933a8c4d1c99608f3a084b45a77ddd803e4b30424068b76f8b42f517db1a505cb7ad34e221e72be3152f24831166a3c47a015a596c3a888241af09fad507597f8009dc9abe1f3785330ae73c2aeb2f9095a5e1d6b0d1e4e5b38f684ba9d23420f1dc552d693f16786f41bc50d257742818c1212e0d1681ff1df013c2fdcf5e882fbdf82608b83461b71741b4bf7b70f66cd0af34421070798d174c0f094322e993be28272ad58fc60091",
+      "spec": "alnum:8,min_entropy=32",
+      "value": "pJy1fisn"
+    },
+    {
+      "rng_hex": "4a0aab7c962fa561d8de6ab2cd76fb414bda3c501feb17bac171ea18dd6ce892c984591110de253f667312eeb39a78fa55726d93000740be114e621399cdcd1196bf9c26c018fb00f9a310ae90aa10bf5ab043bdac8ef472bfaeb3104c289cf20d6238fd9d933674b6c9fca8d786f20dc77332ff5ca31b0ecf513ab37ee550864c09878702db0ae46175a4edb9bbf8938b5ebb08a29b83924666618b6e3941bb8c58fec0043441680d7521376405ced8c2d57bb2a1e5605874ff1536b6914a36f6e61d77bf784934d5b4b70424265c576abce46f2bfac1f8a0d8f80f9bb6c997e6c39df71edd9c570e4cb62600fa7a2347f891745bea8b3b479b2ecc578c03c5c3997f9431ec0be29eb888ee897db5813ed6e0f431c7665a1e7a71aa034859b270c8d9474f5b10bc2b542cd26ecc01208ba5130f1ec3fec62bdb685dbcbf1a23",
+      "spec": "alnum:32",
+      "value": "MKvAavpjeks2T4DNg8SfxXAHzwYjuuWP"
+    },
+    {
+      "rng_hex": "6b0b6e3347ffbfd3fdaaa18547d80ef043d2ad492c52fcf533584ffc0652bf86c8acb9e5ea3c5b38976951c904733daef8f75620ccd2f46ac51ab19ef4ebcdd6f60f486c2dd47591e9c3ccaba6678f6fdfa4857da8c2f33d86d58b4df3e15c289683a80a21337e7e0d1a1609a79e9700be62436f44f94ca86597a7f3a233caab968846aa6a376aef4e9b367905d5b3fd3d8bb9025b666dcfa6f7a91fb1ce6fe2247a5a3fa7fe875aea10b521719d81006c90e50a801c53430606046661be6d79d1d9eba16cc04be750607e294834a6e712d22c0f2c38678855ae50e2a8989eb45ee5a6d92928317fe76a606de72142616aafb6e270178530c1add2abecaafef9ba47d95ef29ef55f2d8d6e366f22c76be910b9d61b8a5bdc4a2d41f584b4e3228051fb49bb036f12d4ae32204c357124054a5bc4585b3fa04028feaa41bfc739c2f318668fc7983bf25c312668f2018729410d5fade38d53064cce8e95ec5468ddc66b886948601119eec6d00d77164bd0cb4662a298a1a6673d9bfe91d922c5db35e6bc39888521d32d7f6b66342bc2758698db68e48f25bf81d26ec56f1a59d39c5070413d0a4c43e168ecc597fac2f8ad4c2a2c2d054d48ab55a8d61db455cae0c9b45ed35fc3c1e8db738fc45207a78523ae7fb549188b846f9cd75eca01ea566c652712f977b9ef03cac373083fcbdc56c58d7a421b0f56fb4d33bd91d873f06362be63062b5a3bde822e234a5aba4d0599e5e862a329871441ab973806821619da58ac276872bf1039ab81613b406e98738b81b772f4e0c890c214dc76cf43c00372158311d6c8db47d8f177bb5a4a86f10debf7658453b80da6514a59930ec42f81240162681c4e9cdf16c738ad127b603c5b69fba418da4bc207fc5c1fa21ad4b7d7570463a8110a7491eaf87089ce52600643c7ff2d27606edf379681863a52fb74ef5b5f6791788212057dde763fc908e5be51e4f95cdd0b7724fc1c4a7e189966305bc749e21b2043ec869232dc5cc69a9a3b3291c43e63722314e1a1a35020cda8b0c2d2977d990ca7ec118e359b46684aae058cc6353f8ffbc7deb1d26f106127cac0182dadeb56ea3796149917e6c1510a874462570547a730810f56eabc2d206956ebed2dd80d461f36c0f581a67ee164984e15581c223a247fef07290527c04a68b4f44fb2a0205a642624fbce92d60bdac6b8fe1f2aa0b8d43a1876dd04258f06c8a4209e82e8c5e16beb7552a76d00ba9fc5a5a28b3f96143359828a66cec13e2a30d7b74af91abed5b2ffba1e8773894c8ea6b89db5e12f0874a192b259f9a7c06324dd2b06c5dc4a9b50099a27d7e53076764752b08d67f452ebae9ad0213e09646e20916adc8f5cb57ac8bbc5b5e221a4c971f74e06e89ba8ca9c3b449eb29255598f0586b17d225ad638c5a776f9a342c9839da4e75a4ae67a0ec320d6f1c730a5558bbd3621da3b90782c7ba46d73a40ec87cc4cb133f52eff356075724d92a78b7d78fad011d6e97e67d25822d249f72770b48e290a9b9e324e1e04aa46c117ed14a16f99c0d841fabf3986efe732e6a745d4e5a3dcc43876c68374a57a248855a7595be6fdd1fb9fcfcc0334100e04b7eb4ed6df879690fb96f0af88dfddef6a7511a04e621bf7e23b0a5e504b579a6d88658e1624a781cb656b1ecc27eb6bd601d2f94810b945e0fb32731435bc0d5d153ab086b5479746a5bc5383c3085689d85a9c4366085093ba716eb8472ce1da0a9ffa2831d13d94a6dcebfa03b055806f786afff470d2311394aa280f68f53e57cc2991ebbb0ee3190478b3a3c3eab6c66ce625c55f86ce6838fe8963f7421934f8de06d4e4687b0c538d270dc378f433f1ee77bc874279f694f60a7e138cadd02940b1dddf4daebbdbed94531a75cf1ebdbbaef40324625b2990259b8acfe4a37dd3d508c083d1b8fd30fd2108ce028b4554903f13caa1a25dbbf34f56376fbc378ffd73739a7354ce669cabb2df5801649a87a04cf96966a66280197e0efdfa73d97ca625ce4e5c8834f29bf6a088f8808acd6878c28fb89b8754857f3c8543ec9f80353bb28f83a83506d3a1888ee5ed7a10a2865bf1bc441d81bdec18d4fc288c5e1f485ecfc5c42471474258599bf20b4e59eafee4891ecbc906b9b8366309b6045b308291d6fe9e5df96fb4b825d35d479261df9e80384344d63cb07529ad3ebf28b6110c25582f61bf1a22f8b55c219cba4ddda03393b67c395e9d30ac54859c30b86b60182210c412ce8e94932c897cc221d27ddbd8be7fbb53cf58c5e7d69e965eb1b7e47ffcf69dc7eb0e69435f04a4f8df08dabe375b3187cb1baa136131bd677e07ffedc854b87e03344139f5a54847a60acc651b609a9eab9e6850b4c719c32591733ed402e23e90d84e52c8a3847f7263b7376f1951005073f96190dc7688714bb08dd207988c81e2fb17e64028490d13f06f07dd9f5bd124b62bf4b746e03ca249a51ad7de1f8449a248d91ea5dc93dd3ddc31a17e27909e1455a957f7967e5fde8cb19423ab845729cf13dea88f3a52f843ef4cfa9fcc7a101594937ccc678a7868629c30de630d44c86cc3ee7f6ea8b42c60eb6049fabe87e4688c4e2070729b4dfb1cc6b735bc2cc3b0f4d7839dc173b059231eb9a0fbe070fc0f5aec26505c8e3ffdfdd41c6c6f23bf4a8cce8ebfb04cc08e241356b6ac25282347c6f83d677dbfa5b8fb2c92e2346f0c4d12a08622fd0d3143d248389f4b49e68bfae83609c15e528fc835c85a2ee116d14e589275cd548ebd69f9640d812547d67cc06d1bf86d708281285b1b89d6debc8bb83646ccfd27992b808cf046bb9dbdbf480d90edbb3a94580c100152dba1cb8f5e726527075b0bc4c51525818b60c58ae49056671db92c0820718d571aea2cec0a44b2dfbf9d2d44efe790cada5aef497291fb5eeb53eed01cb1bc8f70b65886ea58ac121022483feb34864f9bd598f427558dc5d5a8036bd850f670fcabf7ed9a04aaa843f33f94cfd8d1be17b10007d8320813c5a94ef99185cc47967070543fa7f91732f42513a2a28bfdf178f87bb861a10c55062fe02d9e1349cfb5d7a3a42def3516c7f5dc4a42cbee44cfc7775b6b812dcf5163aa122d5f9b8dde7d75fa47019c19a5090c95e642993b23a4ae7b3990e7000683b108a7c1089931ebf7572e9cd494234d2efcebcd25302f7bdf925be943ef1c8b76b292cbbd8c39f2f05752c1011dc771de702836288d1",
+      "spec": "alnum:1024",
+      "value": "tLwzJFZulJJeO2FYxLsU7zaRGUFKOw9rw8d4brTPE19y9YgSY6sLa1i6xTc8PKuta3VvJSvqpTxloJBsI59KbPP5neoaHsKhzCCNaWJribAEkFxGOsnbr5mzQvaMIus3s1Qf27Fb39P9CdovVq9tf1Uxok8cBrLcwQ5hzhFAuUrKEcVFGGEojEv7XfxluGNtSiCpK0qtSYsPs4pMXySosci4grqfpoxDtsivthEjsz6oyXJwHxYvyuAJfg4i7htRw2xiNtvQ9cbOdiMtD7I4piETLBDxSayygO1zkFMdKadBkCouDFN5I5YoTNc74exmq4BLpDNhxpRVGOUSZyWqjMtMrKiRZ0MWN5WNWRIkmclqp9fVfiLh1sC5MJhZtDto0rI3KchqqTlFFYwLxabZgSyD9KOFnqyLbIxOqstFPKvXscd4XQmP4gZhJHuh1TKUHrJjyD5LYPIxgdgQBwYunnS591DQJ1IBRiYLR8EbPYPzDVe12lkElGrc7kGujMcAPFdruknpLUDvb4GGWZgawnq0FQ5vFj7Cwc1PF706mOUIUi4VFGD0VHRcOhJe35BcMK3Nx9nIV8NqTMbXOKvFkBkqcQglWN4xS9i8droYgNIHefmaa7dZElsRK2VwyNUUiGFNtniwl3aFK6U21dhpV6GSFBk4BPIrETqejL5kcMCYdowdNLobgFyKWyieMee7yVKAl0jUnlnSgTs0IYbBdMryRS1fIqMyFQM1BTNk1YxQjnQGYtxxYw3aUdXsHTKLGkZFJrwFPYwCtgrYxzteNIf2G7FqCnmcQVaci6kD1HpFnGMq46R2kgcmmkUWcLgM8fqk8a6Y4jElTGOogiGuLntx3UrvAAjLpmPBaUzbGOoUHAqwd7MaEb2AeL1NOSq8h5nvI2lW2brGlkjrGLiMfSJendrw44JU0Rp6UxyeWhAJmwgVsiTe58OBL5ohoPz9QGufsQg7Gi2WXbTFK1Bicc4Lr4nEPHhotcMs8OJgc3NwpXPD2hg7U6s9ov1oOOAK"
+    },
+    {
+      "rng_hex": "8c0c2d76b86b058452a05c61ef264bc5ae0891621c22af2daf1ddbabfcf38a1162dd66b323d4febff1831d45fbfe0e7878512f7f06bd204767774ec0b77012bbd3b4580e5adf1f8df7afa496594002abe1fcf6b37b554e17d7c7ed74f6ec2ff25df2e052e7275d48149e55a1fdad9b1035867d517071bc5f25b6124450fa5f18be5b550d325e2b88a02a0ba0ffa3bb6e17723bd6b77731b05f9f0292e3085fc135bda78f41679ac90cb4edb83d8436f094a084c9197211a0b6e6c7dc00eee7785bca344ef61fd7f138c44d0a30baf220a5a0fe268f66ca56b45c7c94016497450b085025cb46784327e205b9f5427dbc11444eb25a70398bf95b58d77dafbde8c20cb1591022bd09aa8254e17049b011",
+      "spec": "password:8,min_entropy=32",
+      "value": "QMt48tFI"
+    },
+    {
+      "rng_hex": "ad0de83969bb1f3677d497566588be74a600007b2f9b44625d347e4f27cddd0563f58647d93680b800995e624c174b2cd5d414ccca689493b3239d4dda56127cb3048c44b713911ce7cf78936f8d9d7b64e830737f194958eebcd5294925ef28c61370a55b871542af4dbf008db5fe1d4c970cc1682bebf98f708f048c2cc53564da94205ab24b838fc4993443cdf000a1a739dc4e8adfedbf0eca063cff71989d9f0370e2ad5cfbebd179ae281c79283ae51a71388b22bbc41fd68cd7c1c0377cf5c29825a7d522bd1084275ca80890ddce364688a46c26412ad479324ac066b32e6b0bfcb3d56bcec4d3f2129945fe3c136924718d37807f6da4b0c68940d4bbd21793d35043b419b7b2399616c2fb271c2827d1d63712a6caa22a1edc68ac",
+      "spec": "password:16,min_entropy=32",
+      "value": "xNu5rBf25abYnME2"
+    },
+    {
+      "rng_hex": "ce0eaf70a2485c32789b965ce602753b11f7a4f994ca25b44879df9edc2a4966b3a65bd901731b62a50608f3d9fd524c34a2b50f4a17d7c4070edf397aff6e79f584da584352f8fe2b3191ad04dad37ded5eb519a6d61d463849b5c3095e6fb010badd95580cb00c95c95f313abc3618c0a19943e908cebc7063f5df45a61ef1ddc4c8bd0835f6cada531c3ed1951dbc0e7a93b24fd5267ea331c7b7da44718c183d28b7bfe69d9a3a3ee6867b9c84fa1f0c4b28b6fed7465136736b85b5398ee258763daeff6dca3d895a1c6ef63b860b22007ed776b51fc0dc216028031401462f0b33bce6668138ae6d6c260288ca3a5f472b5a91d06b97c2c86ce17cce0634446144c055dbe8af28100290ad77eb14a52e242a13dfa829ba9c6547728bb7cdaf171080565bb07c2bdf6f783d12cd33612d20290eae853831e317068e6cc4",
+      "spec": "password:32",
+      "value": "UOzymKey6faesC37R9oYQl4K7liiqLo3"
+    },
+    {
+      "rng_hex": "ef0f6a3f739846805def5d6b6cac808a19ff35e0a773cefbba507a7a07141e72b28ebb2dfb916565541c4bd46e14171899278ebc86c26310d35a0cb417d96ebe95340e12ae9e766f3b514da832174cad684a73d9a29a1a0901328d9eb697af6a8b5b4d62e4acf8062e1ab5904aa45315b9b0e8d3f152991adaa5689f997084dc0745099060d996c1f5bd8eaa6dfb56d2b8af91b8b628c82343a00f2305b35fd5b01f8c481c2c5ba8dd5b72906e04cb22b149d5909707e45d23cf623b529a1ec1c56780eb7d476f19b85d933102e4c136734cc81ed0b4136f35aa898d1b2d4322fe09301d8b13cba9d188bb27c1d9b088170860bd716cde6011f4340b5a5a333a4d9ac78e032725551c1df6da76f20501c3637706005ee22e7dedac3ac08e3127",
+      "spec": "password:16,upper,lower,digits,symbols,min_entropy=32",
+      "value": "PQ#Z!+mDDRS[mwZ1"
+    },
+    {
+      "rng_hex": "3153d4da650486b33024737169a372289861c53ded443b3fe2bbb952c696a119f949fc7c5433e383270e35ee9dc5d9dd0e03bed538e3f2efe7a0a7261ecd954fa36e2b737614518112a286789be60762d2cc738e7eb30e11edd3a7d042049e35c9e703ca791d3d0324e0d99aad72fc38ee16f085f36d99d6d6a2e18251088efc2d991166f1d7f72d199c6f3a9d6abf376f568a1be5c6ef9e25666a0919053aaa2ade42cc91f4c03898dfdd23d3a80800430903fd4fcab8ef63a39b74bbb85c9d4fbb9c7b4761563581e015d0788b2519e338de06e8c929f33105d151ef04c73804b1ebcf264551e6284981c4a1bb7c95c630104a8ae15f62e63b4c3ba0f024b4f4ebedb74791c62f454b2b3d5857354455145aad1ac2aa71922442dcad8eb1ae",
+      "spec": "password:16,lower,min_entropy=32",
+      "value": "xfekxeexwkljbhko"
+    },
+    {
+      "rng_hex": "10521195b4d49c011550b846e30d879990695424defdd07010921cb61da8f60df8611c88aed19d84d61476c92a2c9c89a3868566f436463b33f474ab73eb9588c3deff399bd8df1002c25a7dad2b98b257d8b54e7aff095ed4a89f8dfdcd5eef5206933dc5bd75099f33333bdd6a993597078115eb37ce707c647cc28dde14d1f718d04b993b97263672fdae2104f459d98388111c3b01c3c5f7a29dc6f214f382fce633323e060a7fba4935c63047d8ed4c9d456e338bf4115a8a246c977bd268846aad94d954e60434dcfd1499dfa99b561666ef0b8f83c47379bcdc2a901bbc97d0e111b0fccec16f578f466044d7eb6737dca11c5169600db05c1bd6d9888d354b7d84e33892f67ecde5be0847ae82d2038f308f97f7c67372832a720b3e",
+      "spec": "password:16,upper,digits,exclude=ABC,min_entropy=32",
+      "value": "TTUUSR1EYRWH6QGY"
+    },
+    {
+      "rng_hex": "000102030405060708090a0b0c0d0e0f",
+      "spec": "uuid",
+      "value": "00010203-0405-4607-8809-0a0b0c0d0e0f"
+    },
+    {
+      "rng_hex": "735156dc7f27df051a1fb94c60874cd6279ef0a665acb1a605dfbd67e64f626e",
+      "spec": "jwt:hs256",
+      "value": "c1FW3H8n3wUaH7lMYIdM1iee8KZlrLGmBd-9Z-ZPYm4"
+    },
+    {
+      "rng_hex": "52509393aef7c5b73f6b727bea29b9672f9661bf56155ae9f7f618833d71357a291a21e28c7678598291637f082fc0bd",
+      "spec": "jwt:hs384",
+      "value": "UlCTk673xbc_a3J76im5Zy-WYb9WFVrp9_YYgz1xNXopGiHijHZ4WYKRY38IL8C9"
+    },
+    {
+      "rng_hex": "b557d0d651637fe090618f9f42d7fc52c24c5d94666509316bb38cd4c7d000ed836bfeb4459edddee47b2ff3f7a2f36b6fd3664972f36595f1e01a0cfdff3627",
+      "spec": "jwt:hs512",
+      "value": "tVfQ1lFjf-CQYY-fQtf8UsJMXZRmZQkxa7OM1MfQAO2Da_60RZ7d3uR7L_P3ovNrb9NmSXLzZZXx4BoM_f82Jw"
+    },
+    {
+      "rng_hex": "9456159980b36552b51544a8c87909e3ca44cc8d55dce27e999a29301cee57f9",
+      "spec": "hmac:sha256",
+      "value": "lFYVmYCzZVK1FUSoyHkJ48pEzI1V3OJ-mZopMBzuV_k"
+    },
+    {
+      "rng_hex": "f75552d04b402656ba5a45a24bf3c2ac7db3680fee8d83a88cd788e1e709c39a5210c3de67393803b0fe3a45d5a1af5f",
+      "spec": "hmac:sha384",
+      "value": "91VS0EtAJla6WkWiS_PCrH2zaA_ujYOojNeI4ecJw5pSEMPeZzk4A7D-OkXVoa9f"
+    },
+    {
+      "rng_hex": "d654979f9a903ce49f2e8e95c15d371d75bbf916dd3468e77efe2d053c37948e5338232a9ddb460441e479626248ea0b8ea5c78af28c26c245cd58785d564a22",
+      "spec": "hmac:sha512",
+      "value": "1lSXn5qQPOSfLo6VwV03HXW7-RbdNGjnfv4tBTw3lI5TOCMqndtGBEHkeWJiSOoLjqXHivKMJsJFzVh4XVZKIg"
+    },
+    {
+      "rng_hex": "395bfda0e9087a64c2c1d3feadf1b7976c44ccf67a47a61cc4ae577f3b238afc",
+      "spec": "laravel",
+      "value": "base64:OVv9oOkIemTCwdP+rfG3l2xEzPZ6R6YcxK5Xfzsjivw="
+    },
+    {
+      "rng_hex": "185a38ef38d860d6e7b518c9275f4226644c5def49fe4d533687f29be01ddde8e09e78f39ca85d66e4e27191bbb5b847ba077285b89bf10642c3874127a9245b7351e149424dc36327ff7fe8601b59db01cab5590bf2ae7d8488742a4e57825f122c9607e705ae39a8adc503cdfdc630a55357f82eeda79de6e0a1eae66705bed88eca7ca18b40802d7e4eddb689aa184bd59b7d4602959f7f3f063391877b05232497cbc88b40314445633ce42d3b0aa4352916605a2d4a82752ba55f5def1227f035a97341a7e9d4cd7cef6ef34a585f680c519ce13132102bdc476efbdac81773160078cd7e5bd06f897c95dacb828784af31fa1733b2490f0e2bd089a9a3b8e4e4f4657855916d6c01e8d79135d5587bbc5ad0c02491032e0d39f7680b07ec2bbd2e4bbacf521337841f3c57b86a17a1036a25aac8e3799d4d4458cdccbb81aec95a94d018c52094bb280978ec904cfad2718f3e8d49b004071060b669459993732a",
+      "spec": "django",
+      "value": "y%g$gq_o55yb$-q#a0*$x17e9&fy3v6yiu*gs*c20n-@58v!ho"
+    },
+    {
+      "rng_hex": "7b597fa6f32b23d2e8fa19c3a4d58969d3bbf96df2af2c8523ca534a1bfa498b30cda56d44edc6bc417d27002e5fa1275b71d34638e4b251f6eec5358700585e",
+      "spec": "rails",
+      "value": "7b597fa6f32b23d2e8fa19c3a4d58969d3bbf96df2af2c8523ca534a1bfa498b30cda56d44edc6bc417d27002e5fa1275b71d34638e4b251f6eec5358700585e"
+    },
+    {
+      "rng_hex": "f8ff0001020304050607",
+      "spec": "alnum:8,min_entropy=32",
+      "value": "ABCDEFGH"
+    },
+    {
+      "rng_hex": "fa000102030405060708090a0b0c0d0e0f",
+      "spec": "password:16,min_entropy=32",
+      "value": "ABCDEFGHIJKLMNOP"
+    },
+    {
+      "rng_hex": "ea000102030405060708090a0b0c0d0e0f",
+      "spec": "password:16,lower,min_entropy=32",
+      "value": "abcdefghijklmnop"
+    },
+    {
+      "rng_hex": "0001020304050607001a344400000000",
+      "spec": "password:8,upper,lower,digits,symbols,require=each,min_entropy=32",
+      "value": "Aa0)AAAA"
+    }
+  ],
+  "errors": [
+    {
+      "error_contains": "empty generator spec",
+      "spec": ""
+    },
+    {
+      "error_contains": "`hex` needs a byte length",
+      "spec": "hex"
+    },
+    {
+      "error_contains": "`hex`: byte length must be between 16 and 1024",
+      "spec": "hex:8"
+    },
+    {
+      "error_contains": "`hex`: byte length must be between 16 and 1024",
+      "spec": "hex:1025"
+    },
+    {
+      "error_contains": "`hex`: invalid byte length",
+      "spec": "hex:abc"
+    },
+    {
+      "error_contains": "`alnum`: length must be between 8 and 1024",
+      "spec": "alnum:7"
+    },
+    {
+      "error_contains": "`alnum`: length must be between 8 and 1024",
+      "spec": "alnum:1025"
+    },
+    {
+      "error_contains": "`base64`: byte length must be between 16 and 1024",
+      "spec": "base64:15"
+    },
+    {
+      "error_contains": "unknown generator `bogus`",
+      "spec": "bogus:16"
+    },
+    {
+      "error_contains": "`uuid` takes no argument",
+      "spec": "uuid:16"
+    },
+    {
+      "error_contains": "`uuid` takes no options",
+      "spec": "uuid,foo"
+    },
+    {
+      "error_contains": "`hex` takes no options",
+      "spec": "hex:16,upper"
+    },
+    {
+      "error_contains": "`hex` has an empty argument",
+      "spec": "hex:"
+    },
+    {
+      "error_contains": "`password`: unknown option `foo`",
+      "spec": "password:16,foo"
+    },
+    {
+      "error_contains": "`upper` takes no value",
+      "spec": "password:16,upper=1"
+    },
+    {
+      "error_contains": "`require` needs a value",
+      "spec": "password:16,require"
+    },
+    {
+      "error_contains": "`require` only accepts `each`",
+      "spec": "password:16,require=all"
+    },
+    {
+      "error_contains": "`exclude` needs characters to exclude",
+      "spec": "password:16,exclude="
+    },
+    {
+      "error_contains": "`exclude` removes every character from the alphabet",
+      "spec": "password:8,upper,exclude=ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    },
+    {
+      "error_contains": "`exclude` removes every character of the `upper` class",
+      "spec": "password:8,upper,lower,exclude=ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    },
+    {
+      "error_contains": "empty generator option",
+      "spec": "password:16,upper,"
+    },
+    {
+      "error_contains": "`jwt` needs a hash",
+      "spec": "jwt"
+    },
+    {
+      "error_contains": "`jwt`: unknown hash",
+      "spec": "jwt:hs999"
+    },
+    {
+      "error_contains": "`hmac`: unknown hash",
+      "spec": "hmac:hs256"
+    },
+    {
+      "error_contains": "`rsa` needs a key size",
+      "spec": "rsa"
+    },
+    {
+      "error_contains": "`rsa`: key size must be 2048, 3072 or 4096",
+      "spec": "rsa:1024"
+    },
+    {
+      "error_contains": "`rsa`: invalid key size",
+      "spec": "rsa:abc"
+    },
+    {
+      "error_contains": "`ed25519` takes no argument",
+      "spec": "ed25519:32"
+    },
+    {
+      "spec": "password:8,digits,exclude=012345678",
+      "error_contains": "an alphabet of 1 character(s) is too small"
+    },
+    {
+      "spec": "password:40,lower,exclude=abcdefghijklmnopqrstu",
+      "error_contains": "an alphabet of 5 character(s) is too small"
+    },
+    {
+      "spec": "password:16",
+      "error_contains": "`password`: about 95 bits of entropy; at least 128 are needed"
+    },
+    {
+      "spec": "alnum:8",
+      "error_contains": "`alnum`: about 47 bits of entropy; at least 128 are needed"
+    },
+    {
+      "spec": "alnum:21",
+      "error_contains": "at least 128 are needed"
+    },
+    {
+      "spec": "password:16,min_entropy=200",
+      "error_contains": "at least 200 are needed"
+    },
+    {
+      "spec": "password:8,min_entropy=8",
+      "error_contains": "`min_entropy` must be between 32 and 1024 bits"
+    },
+    {
+      "spec": "password:8,min_entropy=x",
+      "error_contains": "invalid entropy floor"
+    },
+    {
+      "spec": "alnum:32,foo",
+      "error_contains": "`alnum`: unknown option `foo`"
+    }
+  ],
+  "presets": [
+    {
+      "key": "AUTH_SECRET",
+      "spec": "base64:32"
+    },
+    {
+      "key": "NEXTAUTH_SECRET",
+      "spec": "base64:32"
+    },
+    {
+      "key": "JWT_SECRET",
+      "spec": "jwt:hs256"
+    },
+    {
+      "key": "MY_JWT_KEY",
+      "spec": "jwt:hs256"
+    },
+    {
+      "key": "APP_KEY",
+      "spec": "laravel"
+    },
+    {
+      "key": "SECRET_KEY_BASE",
+      "spec": "rails"
+    },
+    {
+      "key": "SECRET_KEY",
+      "spec": "django"
+    },
+    {
+      "key": "DB_PASSWORD",
+      "spec": "password:32"
+    },
+    {
+      "key": "POSTGRES_PASSWORD",
+      "spec": "password:32"
+    },
+    {
+      "key": "JWT",
+      "spec": "jwt:hs256"
+    },
+    {
+      "key": "API_TOKEN",
+      "spec": null
+    },
+    {
+      "key": "auth_secret",
+      "spec": null
+    }
+  ]
+}

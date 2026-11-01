@@ -1,0 +1,7 @@
+{
+  "documents": [
+    "{\"kind\":\"process\",\"object\":\"p1\",\"version\":3,\"vars\":{\"AUTH\":{\"description\":\"d\",\"tags\":[\"one\"],\"var_future\":{\"a\":1},\"__proto__\":{\"var\":\"safe\"},\"lifecycle\":{\"last_changed\":{\"at\":1,\"by\":\"alice\",\"actor_future\":{\"name\":\"new\"},\"__proto__\":{\"stamp\":\"safe\"}},\"last_rotated\":{\"at\":1,\"method\":\"generated\",\"job\":\"j\",\"revoked_upstream_at\":5,\"x\":{\"y\":[1]},\"__proto__\":{\"rotated\":\"safe\"}},\"policy_future\":{\"mode\":\"later\"},\"__proto__\":{\"lifecycle\":\"safe\"}}}},\"future\":true,\"__proto__\":{\"top\":\"safe\"}}",
+    "{\"kind\":\"shared\",\"object\":\"g1\",\"version\":7,\"vars\":{\"K\":{\"description\":\"keep\",\"lifecycle\":{\"last_changed\":{\"at\":10,\"by\":\"device\",\"nested_future\":{\"null\":null,\"bool\":false}},\"last_rotated\":{\"at\":11,\"by\":\"device\",\"job\":\"job-2\",\"method\":\"pasted\",\"future_array\":[0,false,null,\"\"]},\"lifecycle_future\":\"kept\"},\"var_future\":42}},\"top_future\":{\"nested\":[1,2]}}",
+    "{\"kind\":\"process\",\"object\":\"p3\",\"version\":1,\"vars\":{\"__proto__\":{\"description\":\"variable name stays data\",\"lifecycle\":{\"last_changed\":{\"at\":3,\"__proto__\":{\"polluted\":\"stamp\"}},\"last_rotated\":{\"at\":4,\"method\":\"exec\",\"__proto__\":{\"polluted\":\"rotated\"}},\"__proto__\":{\"polluted\":\"lifecycle\"}},\"__proto__\":{\"polluted\":\"var\"}}},\"__proto__\":{\"polluted\":\"top\"}}"
+  ]
+}

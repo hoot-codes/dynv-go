@@ -1,0 +1,673 @@
+{
+  "cases": [
+    {
+      "expect": {
+        "collisions": [
+          "CLASH_PREVIOUS",
+          "LD_PRELOAD",
+          "SHARED_FALLBACK",
+          "GONE_NAME"
+        ],
+        "fallbacks": {
+          "APP_KEY": {
+            "as": "APP_PREVIOUS_KEYS",
+            "values": [
+              "base64:k3",
+              "base64:k2"
+            ]
+          },
+          "AUTH_SECRET": {
+            "as": "AUTH_SECRET_PREVIOUS",
+            "values": [
+              "old-auth"
+            ]
+          },
+          "DUP_A": {
+            "as": "SHARED_FALLBACK",
+            "values": [
+              "a1"
+            ]
+          },
+          "SECRET_KEY": {
+            "as": "SECRET_KEY_FALLBACKS",
+            "values": [
+              "s2",
+              "s1"
+            ]
+          }
+        },
+        "jitter": {
+          "APP_KEY": 0,
+          "AUTH_SECRET": 260,
+          "CLASH": 97,
+          "DANGER": 69,
+          "DUP_A": 269,
+          "DUP_B": 30,
+          "GONE": 223,
+          "SECRET_KEY": 49,
+          "TOKEN": 0
+        },
+        "next": 1000149,
+        "removed": [
+          "GONE_NAME",
+          "TOKEN_PREVIOUS"
+        ],
+        "vars": {
+          "APP_KEY": {
+            "apply": "restart",
+            "value": "base64:k4"
+          },
+          "APP_PREVIOUS_KEYS": {
+            "apply": "restart",
+            "value": "base64:k3,base64:k2"
+          },
+          "AUTH_SECRET": {
+            "apply": "hot",
+            "value": "new-auth"
+          },
+          "AUTH_SECRET_PREVIOUS": {
+            "apply": "hot",
+            "value": "old-auth"
+          },
+          "CLASH": {
+            "apply": "restart",
+            "value": "c2"
+          },
+          "CLASH_PREVIOUS": {
+            "apply": "restart",
+            "value": "real"
+          },
+          "DANGER": {
+            "apply": "restart",
+            "value": "d2"
+          },
+          "DUP_A": {
+            "apply": "restart",
+            "value": "a2"
+          },
+          "DUP_B": {
+            "apply": "restart",
+            "value": "b2"
+          },
+          "GONE": {
+            "apply": "restart",
+            "value": "g2"
+          },
+          "PLAIN": {
+            "apply": "restart",
+            "value": "p"
+          },
+          "SECRET_KEY": {
+            "apply": "restart",
+            "value": "s3"
+          },
+          "SECRET_KEY_FALLBACKS": {
+            "apply": "hot",
+            "value": "s1 s2"
+          },
+          "SHARED_FALLBACK": {
+            "apply": "restart",
+            "value": "a1"
+          },
+          "TOKEN": {
+            "apply": "restart",
+            "value": "t2"
+          }
+        }
+      },
+      "now": 999999,
+      "process": "billing"
+    },
+    {
+      "expect": {
+        "collisions": [
+          "CLASH_PREVIOUS",
+          "LD_PRELOAD",
+          "SHARED_FALLBACK",
+          "GONE_NAME"
+        ],
+        "fallbacks": {
+          "APP_KEY": {
+            "as": "APP_PREVIOUS_KEYS",
+            "values": [
+              "base64:k3",
+              "base64:k2"
+            ]
+          },
+          "AUTH_SECRET": {
+            "as": "AUTH_SECRET_PREVIOUS",
+            "values": [
+              "old-auth"
+            ]
+          },
+          "DUP_A": {
+            "as": "SHARED_FALLBACK",
+            "values": [
+              "a1"
+            ]
+          },
+          "SECRET_KEY": {
+            "as": "SECRET_KEY_FALLBACKS",
+            "values": [
+              "s2"
+            ]
+          }
+        },
+        "jitter": {
+          "APP_KEY": 0,
+          "AUTH_SECRET": 260,
+          "CLASH": 97,
+          "DANGER": 69,
+          "DUP_A": 269,
+          "DUP_B": 30,
+          "GONE": 223,
+          "SECRET_KEY": 49,
+          "TOKEN": 0
+        },
+        "next": 1000249,
+        "removed": [
+          "GONE_NAME",
+          "TOKEN_PREVIOUS"
+        ],
+        "vars": {
+          "APP_KEY": {
+            "apply": "restart",
+            "value": "base64:k4"
+          },
+          "APP_PREVIOUS_KEYS": {
+            "apply": "restart",
+            "value": "base64:k3,base64:k2"
+          },
+          "AUTH_SECRET": {
+            "apply": "hot",
+            "value": "new-auth"
+          },
+          "AUTH_SECRET_PREVIOUS": {
+            "apply": "hot",
+            "value": "old-auth"
+          },
+          "CLASH": {
+            "apply": "restart",
+            "value": "c2"
+          },
+          "CLASH_PREVIOUS": {
+            "apply": "restart",
+            "value": "real"
+          },
+          "DANGER": {
+            "apply": "restart",
+            "value": "d2"
+          },
+          "DUP_A": {
+            "apply": "restart",
+            "value": "a2"
+          },
+          "DUP_B": {
+            "apply": "restart",
+            "value": "b2"
+          },
+          "GONE": {
+            "apply": "restart",
+            "value": "g2"
+          },
+          "PLAIN": {
+            "apply": "restart",
+            "value": "p"
+          },
+          "SECRET_KEY": {
+            "apply": "restart",
+            "value": "s3"
+          },
+          "SECRET_KEY_FALLBACKS": {
+            "apply": "hot",
+            "value": "s2"
+          },
+          "SHARED_FALLBACK": {
+            "apply": "restart",
+            "value": "a1"
+          },
+          "TOKEN": {
+            "apply": "restart",
+            "value": "t2"
+          }
+        }
+      },
+      "now": 1000150,
+      "process": "billing"
+    },
+    {
+      "expect": {
+        "collisions": [
+          "CLASH_PREVIOUS",
+          "LD_PRELOAD",
+          "SHARED_FALLBACK",
+          "GONE_NAME"
+        ],
+        "fallbacks": {
+          "APP_KEY": {
+            "as": "APP_PREVIOUS_KEYS",
+            "values": [
+              "base64:k3",
+              "base64:k2"
+            ]
+          },
+          "DUP_A": {
+            "as": "SHARED_FALLBACK",
+            "values": [
+              "a1"
+            ]
+          }
+        },
+        "jitter": {
+          "APP_KEY": 0,
+          "AUTH_SECRET": 260,
+          "CLASH": 97,
+          "DANGER": 69,
+          "DUP_A": 269,
+          "DUP_B": 30,
+          "GONE": 223,
+          "SECRET_KEY": 49,
+          "TOKEN": 0
+        },
+        "next": 1000500,
+        "removed": [
+          "AUTH_SECRET_PREVIOUS",
+          "GONE_NAME",
+          "SECRET_KEY_FALLBACKS",
+          "TOKEN_PREVIOUS"
+        ],
+        "vars": {
+          "APP_KEY": {
+            "apply": "restart",
+            "value": "base64:k4"
+          },
+          "APP_PREVIOUS_KEYS": {
+            "apply": "restart",
+            "value": "base64:k3,base64:k2"
+          },
+          "AUTH_SECRET": {
+            "apply": "hot",
+            "value": "new-auth"
+          },
+          "CLASH": {
+            "apply": "restart",
+            "value": "c2"
+          },
+          "CLASH_PREVIOUS": {
+            "apply": "restart",
+            "value": "real"
+          },
+          "DANGER": {
+            "apply": "restart",
+            "value": "d2"
+          },
+          "DUP_A": {
+            "apply": "restart",
+            "value": "a2"
+          },
+          "DUP_B": {
+            "apply": "restart",
+            "value": "b2"
+          },
+          "GONE": {
+            "apply": "restart",
+            "value": "g2"
+          },
+          "PLAIN": {
+            "apply": "restart",
+            "value": "p"
+          },
+          "SECRET_KEY": {
+            "apply": "restart",
+            "value": "s3"
+          },
+          "SHARED_FALLBACK": {
+            "apply": "restart",
+            "value": "a1"
+          },
+          "TOKEN": {
+            "apply": "restart",
+            "value": "t2"
+          }
+        }
+      },
+      "now": 1000400,
+      "process": "billing"
+    },
+    {
+      "expect": {
+        "collisions": [
+          "CLASH_PREVIOUS",
+          "LD_PRELOAD",
+          "SHARED_FALLBACK",
+          "GONE_NAME"
+        ],
+        "fallbacks": {
+          "APP_KEY": {
+            "as": "APP_PREVIOUS_KEYS",
+            "values": [
+              "base64:k3",
+              "base64:k2"
+            ]
+          },
+          "DUP_A": {
+            "as": "SHARED_FALLBACK",
+            "values": [
+              "a1"
+            ]
+          }
+        },
+        "jitter": {
+          "APP_KEY": 0,
+          "AUTH_SECRET": 251,
+          "CLASH": 67,
+          "DANGER": 112,
+          "DUP_A": 223,
+          "DUP_B": 17,
+          "GONE": 27,
+          "SECRET_KEY": 21,
+          "TOKEN": 0
+        },
+        "next": 1000500,
+        "removed": [
+          "AUTH_SECRET_PREVIOUS",
+          "GONE_NAME",
+          "SECRET_KEY_FALLBACKS",
+          "TOKEN_PREVIOUS"
+        ],
+        "vars": {
+          "APP_KEY": {
+            "apply": "restart",
+            "value": "base64:k4"
+          },
+          "APP_PREVIOUS_KEYS": {
+            "apply": "restart",
+            "value": "base64:k3,base64:k2"
+          },
+          "AUTH_SECRET": {
+            "apply": "hot",
+            "value": "new-auth"
+          },
+          "CLASH": {
+            "apply": "restart",
+            "value": "c2"
+          },
+          "CLASH_PREVIOUS": {
+            "apply": "restart",
+            "value": "real"
+          },
+          "DANGER": {
+            "apply": "restart",
+            "value": "d2"
+          },
+          "DUP_A": {
+            "apply": "restart",
+            "value": "a2"
+          },
+          "DUP_B": {
+            "apply": "restart",
+            "value": "b2"
+          },
+          "GONE": {
+            "apply": "restart",
+            "value": "g2"
+          },
+          "PLAIN": {
+            "apply": "restart",
+            "value": "p"
+          },
+          "SECRET_KEY": {
+            "apply": "restart",
+            "value": "s3"
+          },
+          "SHARED_FALLBACK": {
+            "apply": "restart",
+            "value": "a1"
+          },
+          "TOKEN": {
+            "apply": "restart",
+            "value": "t2"
+          }
+        }
+      },
+      "now": 1000400,
+      "process": "worker-7"
+    },
+    {
+      "expect": {
+        "collisions": [
+          "CLASH_PREVIOUS",
+          "LD_PRELOAD",
+          "SHARED_FALLBACK",
+          "GONE_NAME"
+        ],
+        "fallbacks": {
+          "APP_KEY": {
+            "as": "APP_PREVIOUS_KEYS",
+            "values": [
+              "base64:k3"
+            ]
+          },
+          "DUP_A": {
+            "as": "SHARED_FALLBACK",
+            "values": [
+              "a1"
+            ]
+          }
+        },
+        "jitter": {
+          "APP_KEY": 0,
+          "AUTH_SECRET": 260,
+          "CLASH": 97,
+          "DANGER": 69,
+          "DUP_A": 269,
+          "DUP_B": 30,
+          "GONE": 223,
+          "SECRET_KEY": 49,
+          "TOKEN": 0
+        },
+        "next": null,
+        "removed": [
+          "AUTH_SECRET_PREVIOUS",
+          "GONE_NAME",
+          "SECRET_KEY_FALLBACKS",
+          "TOKEN_PREVIOUS"
+        ],
+        "vars": {
+          "APP_KEY": {
+            "apply": "restart",
+            "value": "base64:k4"
+          },
+          "APP_PREVIOUS_KEYS": {
+            "apply": "restart",
+            "value": "base64:k3"
+          },
+          "AUTH_SECRET": {
+            "apply": "hot",
+            "value": "new-auth"
+          },
+          "CLASH": {
+            "apply": "restart",
+            "value": "c2"
+          },
+          "CLASH_PREVIOUS": {
+            "apply": "restart",
+            "value": "real"
+          },
+          "DANGER": {
+            "apply": "restart",
+            "value": "d2"
+          },
+          "DUP_A": {
+            "apply": "restart",
+            "value": "a2"
+          },
+          "DUP_B": {
+            "apply": "restart",
+            "value": "b2"
+          },
+          "GONE": {
+            "apply": "restart",
+            "value": "g2"
+          },
+          "PLAIN": {
+            "apply": "restart",
+            "value": "p"
+          },
+          "SECRET_KEY": {
+            "apply": "restart",
+            "value": "s3"
+          },
+          "SHARED_FALLBACK": {
+            "apply": "restart",
+            "value": "a1"
+          },
+          "TOKEN": {
+            "apply": "restart",
+            "value": "t2"
+          }
+        }
+      },
+      "now": 2000000,
+      "process": "billing"
+    }
+  ],
+  "doc": {
+    "default_apply": "restart",
+    "process": "billing",
+    "removed": [
+      "GONE_NAME"
+    ],
+    "tokens": [],
+    "vars": {
+      "APP_KEY": {
+        "fallback": {
+          "as": "APP_PREVIOUS_KEYS",
+          "format": "list",
+          "jitter": 0,
+          "values": [
+            {
+              "value": "base64:k3"
+            },
+            {
+              "until": 1000500,
+              "value": "base64:k2"
+            },
+            {
+              "until": 999000,
+              "value": "base64:k1"
+            }
+          ]
+        },
+        "value": "base64:k4"
+      },
+      "AUTH_SECRET": {
+        "apply": "hot",
+        "fallback": {
+          "values": [
+            {
+              "until": 1000000,
+              "value": "old-auth"
+            }
+          ]
+        },
+        "value": "new-auth"
+      },
+      "CLASH": {
+        "fallback": {
+          "values": [
+            {
+              "value": "c1"
+            }
+          ]
+        },
+        "value": "c2"
+      },
+      "CLASH_PREVIOUS": {
+        "value": "real"
+      },
+      "DANGER": {
+        "fallback": {
+          "as": "LD_PRELOAD",
+          "values": [
+            {
+              "value": "d1"
+            }
+          ]
+        },
+        "value": "d2"
+      },
+      "DUP_A": {
+        "fallback": {
+          "as": "SHARED_FALLBACK",
+          "values": [
+            {
+              "value": "a1"
+            }
+          ]
+        },
+        "value": "a2"
+      },
+      "DUP_B": {
+        "fallback": {
+          "as": "SHARED_FALLBACK",
+          "values": [
+            {
+              "value": "b1"
+            }
+          ]
+        },
+        "value": "b2"
+      },
+      "GONE": {
+        "fallback": {
+          "as": "GONE_NAME",
+          "values": [
+            {
+              "value": "g1"
+            }
+          ]
+        },
+        "value": "g2"
+      },
+      "PLAIN": {
+        "value": "p"
+      },
+      "SECRET_KEY": {
+        "fallback": {
+          "as": "SECRET_KEY_FALLBACKS",
+          "format": "list",
+          "jitter": 60,
+          "order": "oldest-first",
+          "retire": "hot",
+          "sep": " ",
+          "values": [
+            {
+              "until": 1000200,
+              "value": "s2"
+            },
+            {
+              "until": 1000100,
+              "value": "s1"
+            }
+          ]
+        },
+        "value": "s3"
+      },
+      "TOKEN": {
+        "fallback": {
+          "jitter": 0,
+          "values": [
+            {
+              "until": 10,
+              "value": "t1"
+            }
+          ]
+        },
+        "value": "t2"
+      }
+    },
+    "version": 1
+  },
+  "doc_wire": "{\"process\":\"billing\",\"version\":1,\"default_apply\":\"restart\",\"vars\":{\"APP_KEY\":{\"value\":\"base64:k4\",\"fallback\":{\"values\":[{\"value\":\"base64:k3\"},{\"value\":\"base64:k2\",\"until\":1000500},{\"value\":\"base64:k1\",\"until\":999000}],\"as\":\"APP_PREVIOUS_KEYS\",\"format\":\"list\",\"jitter\":0}},\"AUTH_SECRET\":{\"value\":\"new-auth\",\"apply\":\"hot\",\"fallback\":{\"values\":[{\"value\":\"old-auth\",\"until\":1000000}]}},\"CLASH\":{\"value\":\"c2\",\"fallback\":{\"values\":[{\"value\":\"c1\"}]}},\"CLASH_PREVIOUS\":{\"value\":\"real\"},\"DANGER\":{\"value\":\"d2\",\"fallback\":{\"values\":[{\"value\":\"d1\"}],\"as\":\"LD_PRELOAD\"}},\"DUP_A\":{\"value\":\"a2\",\"fallback\":{\"values\":[{\"value\":\"a1\"}],\"as\":\"SHARED_FALLBACK\"}},\"DUP_B\":{\"value\":\"b2\",\"fallback\":{\"values\":[{\"value\":\"b1\"}],\"as\":\"SHARED_FALLBACK\"}},\"GONE\":{\"value\":\"g2\",\"fallback\":{\"values\":[{\"value\":\"g1\"}],\"as\":\"GONE_NAME\"}},\"PLAIN\":{\"value\":\"p\"},\"SECRET_KEY\":{\"value\":\"s3\",\"fallback\":{\"values\":[{\"value\":\"s2\",\"until\":1000200},{\"value\":\"s1\",\"until\":1000100}],\"as\":\"SECRET_KEY_FALLBACKS\",\"format\":\"list\",\"sep\":\" \",\"order\":\"oldest-first\",\"retire\":\"hot\",\"jitter\":60}},\"TOKEN\":{\"value\":\"t2\",\"fallback\":{\"values\":[{\"value\":\"t1\",\"until\":10}],\"jitter\":0}}},\"tokens\":[],\"removed\":[\"GONE_NAME\"]}"
+}

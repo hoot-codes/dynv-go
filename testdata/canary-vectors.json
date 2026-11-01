@@ -1,0 +1,66 @@
+{
+  "aad": "dynv/v1/canary-label|acct_vector_0001|cnry_vector_0001",
+  "account_id": "acct_vector_0001",
+  "canary_id": "cnry_vector_0001",
+  "ck": "XOAbUvylNOgSCUfqJv7x4tmisPL7jEl2x9tQJuNAEzc",
+  "http_candidates": [
+    {
+      "host": "hooks.example.net",
+      "out": [
+        "abcdefghijklmnopqrstuvwx"
+      ],
+      "path": "/services/TABC/BDEF/abcdefghijklmnopqrstuvwx"
+    },
+    {
+      "host": "pg-ABCDEFGHIJKLMNOPQRSTUVWX.zone.net",
+      "out": [
+        "abcdefghijklmnopqrstuvwx"
+      ],
+      "path": "/"
+    },
+    {
+      "host": "x",
+      "out": [],
+      "path": "/a/xabcdefghijklmnopqrstuvwx"
+    },
+    {
+      "host": "abcdefghijklmnopqrstuvwx.203.0.113.7.sslip.io",
+      "out": [
+        "abcdefghijklmnopqrstuvwx"
+      ],
+      "path": "/api/v1"
+    },
+    {
+      "host": "2a03-4000-1-2-0-0-0-abcd.sslip.io",
+      "out": [
+        "000000000000abcd"
+      ],
+      "path": "/"
+    },
+    {
+      "host": "[2a03:4000:1:2::abcd]:8080",
+      "out": [
+        "000000000000abcd"
+      ],
+      "path": "/"
+    },
+    {
+      "host": "2a03-4000-1-3--abcd.sslip.io",
+      "out": [],
+      "path": "/"
+    }
+  ],
+  "ip6_prefix": "2a03:4000:1:2::/64",
+  "label": {
+    "name": "SLACK_ALERTS_WEBHOOK_URL",
+    "placement": {
+      "kind": "decoy"
+    },
+    "shape": "webhook",
+    "trigger": "abcdefghijklmnopqrstuvwx",
+    "v": 1,
+    "value": "https://hooks.example.net/services/TABC/BDEF/abcdefghijklmnopqrstuvwx"
+  },
+  "label_ct": "cEKnYcdK4dvUT61j1O7B1OT5bWnCieVFtQEXu42zOvL1EALH8SgBh4rXdIg2pS-IrQhxc0YJuQp4lBJdxhdsd3LaXo3KqG-2NpGZOpFVZEA7CGiTQZ8j-ikpxNL90uGpEpl7RpskcAQCi1QI_PmYtHUfWsk03EBh7jGdyX2XwR3SV5gKIyIiJgCn2D-6mB1oWG56MrNwSjkpLK6ZqKCyrnaAGNZzP9iXY_ho0WFf3-pb03Xz30WJf97LT7uExdL0kZo5_vXXZaOGwmowwL5MJ0MLgnAO289x8FjdXLSRg4oOfnsT1EDgo_o-zgYQyurNSTNIjI4oTQZNY3iweRAlX4jOhKtEleLBphG_PojKQBqvY9E-yEf_1N2lHC1ZNRTk701jwlr0OmiF_ObSiKbRD_DBSI7q2axEuBudVhFyOiMc2eM6-oNElrs6uTYObUAlHMr6-54K2bXrJKM0PM2d5he7FXrWDbHQixyrhY9azRi9wyVJNNORGR5PoXPt0uRW1349HRlpw6d_Qcw5dI3x770cinLhrk9WcPw-pWDgsIHCksXa0gJUc98lVyPktSMww5-hdKmOQswltmtnVs5Kbx0i7dvjuS4xi-dxwgVM9hWaSkbOET3FBb3rNTzP9O1UwjXp3oN6egU16D0S1aPssMNVa3Y3Fk52YdjSx_9jxkUHdMPXRo8Pj8Q2CytiQ-P2cTib6KXlPD5M0UsmtPKhf6x7-T_Wf8a2AwXVcohH7ErNwra-f8HxkZmgSktCSu1n2V8zwkJkUyAOGuO7zP5R_I2UcjrB6kSuhjnUWHYhrSkJ5Pu2YcJEFd2ssOtepGnl0FPf1O5a5Qvjt3I_ntdEJZFTWFyL507sn9SMmwjpfnyqJ6ROk9IPyua2auwnWjMzedkbZoQYfmoNaYrI8PkAtvZjmbXGUQZnridwe0UXXJcw3XbXtJzN2TV8g-UZxZ0c42eqmDbIX3EfzNkLW4TUQbWcTz9GH9JN7v_UKvJn2knEoJQSvz_N2rGhVs6_cQIqruvdN5sjQi1ug0yn18r8EW9mlUnlz1nzw9Cul_Q8mefORVWZBuqSyJWTfapbdeyjOSbP2Ll-5FrwV_XhgbOEnodGmhByiYRrqT2iUsIWBesUdYpjbdH5f1fGlYwiMAt6kubDYd0dalAyZa2qvT-dvbTTYqvSHUgO-mihrujB1HR_Eix9aMZct7lYjXTeGB6zSDNz44qSOYNaENaiqRCjnHT91I70sE-KoFS0StHbNKqY3pdR7ZXaoVO-lIUmPZPNGpZn0ZpHUPovvGEF0CAb33M85WqUg-_KooRIfuG_EyX8lgZsCPcEUtsn1PXyWUQ52AkYzMRV1_hYtywENb3aC-4HoGjHjEI4ZsqX7om0PqtNZBXOWZIzVy9Nkv8",
+  "sign_seed": "BwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwc"
+}
